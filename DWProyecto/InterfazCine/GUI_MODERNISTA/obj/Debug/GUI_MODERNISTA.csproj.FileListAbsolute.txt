@@ -84,3 +84,22 @@ C:\Users\User\Desktop\ProyectoDiseñoCine\DWProyecto\InterfazCine\GUI_MODERNISTA
 D:\Materias\Desarrollo de Sistemas\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Butacas.resources
 D:\Materias\Desarrollo de Sistemas\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Menu.resources
 D:\Materias\Desarrollo de Sistemas\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Factura.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.exe.config
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.exe
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.pdb
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.csprojAssemblyReference.cache
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Menu_Administrador_Cartelera.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Butacas.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Factura.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.CrearCuenta.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Menu.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.inicio.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.manejo.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.ModificarCuenta.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Menu_Cajero.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.productos.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Properties.Resources.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Reportes.resources
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.csproj.GenerateResource.cache
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.exe
+C:\Users\SELENIA\Desktop\ProyectoCine\DWProyecto\InterfazCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.pdb

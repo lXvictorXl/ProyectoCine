@@ -47,6 +47,12 @@
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="ConexionBD y Consultas\Conexion_Consulta.cs" />
+    <Compile Include="Editar_Perfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editar_Perfil.Designer.cs">
+      <DependentUpon>Editar_Perfil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms Cajero\Butacas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,10 +101,10 @@
       <DependentUpon>Insercion_Peliculas.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Funcion_Sala.cs" />
-    <Compile Include="Menu.cs">
+    <Compile Include="Forms SupervisorCajero\Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Forms SupervisorCajero\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="inicio.cs">
@@ -121,6 +127,24 @@
       <DependentUpon>ModificarCuenta.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Pelicula.cs" />
+    <Compile Include="Forms AdminCartelera\Menu_Administrador_Cartelera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms AdminCartelera\Menu_Administrador_Cartelera.Designer.cs">
+      <DependentUpon>Menu_Administrador_Cartelera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms Cajero\Menu_Cajero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms Cajero\Menu_Cajero.Designer.cs">
+      <DependentUpon>Menu_Cajero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="productos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +159,9 @@
     <Compile Include="Forms SupervisorCajero\Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms AdminCartelera\Menu_Administrador_Cartelera.resx">
+      <DependentUpon>Menu_Administrador_Cartelera.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms Cajero\Butacas.resx">
       <DependentUpon>Butacas.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,7 +171,7 @@
     <EmbeddedResource Include="Forms SupervisorCajero\CrearCuenta.resx">
       <DependentUpon>CrearCuenta.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Forms SupervisorCajero\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inicio.resx">
@@ -155,6 +182,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms SupervisorCajero\ModificarCuenta.resx">
       <DependentUpon>ModificarCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms Cajero\Menu_Cajero.resx">
+      <DependentUpon>Menu_Cajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="productos.resx">
       <DependentUpon>productos.cs</DependentUpon>
@@ -167,6 +197,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Forms SupervisorCajero\Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
@@ -195,7 +226,63 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Admin_Cart.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\apagar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnCerrar.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btninicio.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnMaximizar.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btnMinimizar.Image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\consultar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dejar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-usuario-masculino-en-círculo-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inicio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.Cine.y.Multimedia.w.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-in-film-strip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salas reducido.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Seleccionar Pelicula.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\use.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\usuario-registrados.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
