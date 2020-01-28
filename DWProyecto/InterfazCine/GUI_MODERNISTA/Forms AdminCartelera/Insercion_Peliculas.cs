@@ -16,5 +16,24 @@ namespace GUI_MODERNISTA
         {
             InitializeComponent();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            Conexion_Consulta modPeli = new Conexion_Consulta();
+            Pelicula peli = new Pelicula();
+            peli = modPeli.InfoPelicula(txtBuscar.Text);
+            cmbPelicula.Text = peli.nombre;
+            cmbEstadoPelicula.Text = peli.estado;
+            cmbClasificacion.Text = peli.clasificacion;
+            txtDuracionPelicula.Text = peli.duracion.TimeOfDay.ToString();
+            txtFechaEstreno.Text = peli.fechaEstreno.ToShortDateString().ToString();
+            txtGeneroPelicula.Text = peli.genero;
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_MODERNISTA
 {
-    class Funcion_Sala
+    public class Funcion_Sala
     {
         public int Id_FuncionSala { get; set; }
         public string Tipo { get; set; }

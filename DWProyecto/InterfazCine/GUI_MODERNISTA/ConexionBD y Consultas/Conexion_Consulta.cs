@@ -49,7 +49,7 @@ namespace GUI_MODERNISTA
 
             string consulta = "Select DISTINCT p.Id,p.Nombre,p.Genero,c.Nombre " +
                               "from Pelicula as p,Funcion f,Clasificacion c " +
-                               "where CONVERT(date,f.Hora_Fecha)='2020-01-21'  and p.Id=f.fk_Id_pelicula and p.fk_Id_Clasificacion=c.Id";
+                               "where CONVERT(date,f.Hora_Fecha)='"+dia+"'  and p.Id=f.fk_Id_pelicula and p.fk_Id_Clasificacion=c.Id";
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
@@ -100,7 +100,7 @@ namespace GUI_MODERNISTA
             return datosImagen;
         }
 
-        public ArrayList Buscar_Funciones_Para_Una_Peli(int idPeli, DateTime dia)
+        public ArrayList Buscar_Funciones_Para_Una_Peli(int idPeli, String dia)
         {
             ArrayList TodasLasFunciones = new ArrayList();
             Funcion_Sala funcionSala;
@@ -131,6 +131,48 @@ namespace GUI_MODERNISTA
             conexion.Close();
 
             return TodasLasFunciones;
+        }
+
+
+        /////////FUNCIONES PARA ADMINISTRADOR DE CARTELERA
+        ///
+        public Pelicula InfoPelicula(string nombrePelicula)
+        {
+            Pelicula pelicula = new Pelicula();
+
+            string query = "select p.Id, p.Nombre, p.Genero, CONVERT(datetime,p.Duracion), p.Fecha_Estreno,p.Estado,c.nombre " +
+                "from Pelicula as p,Clasificacion as c where p.nombre= '" + nombrePelicula + "' and c.Id=p.fk_id_clasificacion";
+
+            using (conexion  = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(query, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        pelicula.id = reader.GetInt32(0);
+                        pelicula.nombre = reader.GetString(1);
+                        pelicula.genero = reader.GetString(2);
+                        pelicula.duracion = reader.GetDateTime(3);
+                        pelicula.fechaEstreno = reader.GetDateTime(4);
+                        pelicula.estado = reader.GetString(5);
+                        pelicula.clasificacion = reader.GetString(6);
+                    }
+                    reader.Close();
+                    conexion.Close();
+
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Se he detectado un problema " + ex.Message);
+                }
+
+            }
+            return pelicula;
         }
     }
 }
