@@ -25,7 +25,7 @@ namespace GUI_MODERNISTA
         {
             Conexion_Consulta lista = new Conexion_Consulta();
             listaPelis.Clear();
-            listaPelis = lista.Buscar_Pelicula_C(dtpCartelera.Value.Date.ToShortDateString());
+            listaPelis = lista.Buscar_Pelicula_C(dtpCartelera.Value.ToString("yyyy-MM-dd"));
 
             cmbPelicula.Items.Clear();
             foreach (Pelicula peli in listaPelis)
@@ -56,7 +56,7 @@ namespace GUI_MODERNISTA
 
             //crea botones en el form según la cantidad de horarios y del tipo(2D o 3D) de la 
             //pelicula elejida
-            listaFuncionesSala = consulta.Buscar_Funciones_Para_Una_Peli(idPeli, dtpCartelera.Value);
+            listaFuncionesSala = consulta.Buscar_Funciones_Para_Una_Peli(idPeli, dtpCartelera.Value.ToString("yyyy-MM-dd"));
             bool cambioTipoFuncion = false;
             Funcion_Sala funcionSala = new Funcion_Sala();
             funcionSala = (Funcion_Sala)listaFuncionesSala[0];

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_MODERNISTA
 {
-    class Cliente
+    public class Cliente
     {
         public int id { get; set; }
         public string ciNit { get; set; }

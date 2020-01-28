@@ -16,7 +16,7 @@ namespace GUI_MODERNISTA
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Factura());
+            Application.Run(new Insercion_Peliculas());
         }
     }
 }

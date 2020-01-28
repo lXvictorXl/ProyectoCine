@@ -135,6 +135,9 @@
     <Compile Include="Forms SupervisorCajero\Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms AdminCartelera\Insercion_Peliculas.resx">
+      <DependentUpon>Insercion_Peliculas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms Cajero\Butacas.resx">
       <DependentUpon>Butacas.cs</DependentUpon>
     </EmbeddedResource>
