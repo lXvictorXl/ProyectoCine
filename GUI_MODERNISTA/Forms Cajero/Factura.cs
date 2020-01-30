@@ -14,15 +14,16 @@ namespace GUI_MODERNISTA
 {
     public partial class Factura : Form
     {
+        Empleado empleado = new Empleado();
         public Factura()
         {
             InitializeComponent();
         }
-       /* public Factura(ArrayList btcSeleccionadas)
+        public Factura(Empleado em)
         {
             InitializeComponent();
-            listaButacasSeleccionadas = btcSeleccionadas;
-        }*/
+            empleado = em;
+        }
 
         ArrayList listaPelis = new ArrayList();
         ArrayList listaFuncionesSala = new ArrayList();
@@ -169,28 +170,87 @@ namespace GUI_MODERNISTA
             Funcion_Sala funcionSala = new Funcion_Sala();
             funcionSala = (Funcion_Sala)listaFuncionesSala[indice];
             int i = funcionSala.Id_FuncionSala;
-            Butacas butaca = new Butacas(i,funcionSala.Nro_Sala,listaButacasSeleccionadas,funcionSala.Tipo);
+            Butacas butaca = new Butacas(i,funcionSala.Nro_Sala,listaButacasSeleccionadas,funcionSala.Tipo,empleado,funcionSala.Fecha_Hora,funcionSala.NombrePelicula);
             
             butaca.pasado += new Butacas.pasar(Butaca_pasado);
             butaca.ShowDialog();
-            timer1.Enabled = true;
+            crearListaDetalles();
           
         }
-        
+        //Proceso que crea Dettalles de la Factura
+        private void crearListaDetalles()
+        {
+            ArrayList listaDeatalles = new ArrayList();
+            DetalleFactura detalle=new DetalleFactura();
+            Ticket ticket = new Ticket();
+            Ticket ticketSiguiente = new Ticket();
+            detalle.SubTotal = 0;
+            detalle.CantidadTickets = 0;            
+  
+            for (int i = 0; i < listaButacasSeleccionadas.Count; i++)
+            {
+                ticket = new Ticket();
+                ticket = (Ticket)listaButacasSeleccionadas[i];
+                ticketSiguiente = new Ticket();
+                if (i == listaButacasSeleccionadas.Count - 1)
+                    ticketSiguiente = ticket;
+                else
+                    ticketSiguiente = (Ticket)listaButacasSeleccionadas[i + 1];
+                if (ticket.fkFuncionSala==ticketSiguiente.fkFuncionSala)
+                {
+                    detalle.SubTotal += ticket.PrecioFinal;
+                    detalle.CantidadTickets++;
+                    if (i == listaButacasSeleccionadas.Count - 1)
+                    {
+                        detalle.TituloPelicula = ticket.TituloPelicula;
+                        detalle.FechaHoraFuncion = ticket.FechaHoraFuncion;
+                        detalle.NroSala = ticket.NroSala;
+
+                        listaDeatalles.Add(detalle);
+                    }
+                }
+                else
+                {
+                    detalle.SubTotal += ticket.PrecioFinal;
+                    detalle.CantidadTickets++;
+                    detalle.TituloPelicula = ticket.TituloPelicula;
+                    detalle.FechaHoraFuncion = ticket.FechaHoraFuncion;
+                    detalle.NroSala = ticket.NroSala;
+
+                    listaDeatalles.Add(detalle);
+
+                    detalle = new DetalleFactura();
+                    detalle.SubTotal = 0;
+                    detalle.CantidadTickets = 0;
+                }
+                
+            }
+            dgvInfoVenta.DataSource = null;
+            dgvInfoVenta.DataSource = listaDeatalles;
+        }
+
+        //Proceso del delegado
         private void Butaca_pasado(ArrayList lista)
         {
             listaButacasSeleccionadas = lista;
         }
 
-        //Actualiza la lista de Tickets seleccionados de cada funcion
+
+
+        //No hacen ni madres
         private void timer1_Tick(object sender, EventArgs e)
         {
             
             
         }
 
-        //No hace ni madres
+        
         private void picCartelera_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
