@@ -178,6 +178,12 @@
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Ticket.cs" />
+    <EmbeddedResource Include="Forms AdminCartelera\Cartelera.resx">
+      <DependentUpon>Cartelera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms AdminCartelera\Funciones.resx">
+      <DependentUpon>Funciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms AdminCartelera\Insercion_Peliculas.resx">
       <DependentUpon>Insercion_Peliculas.cs</DependentUpon>
     </EmbeddedResource>

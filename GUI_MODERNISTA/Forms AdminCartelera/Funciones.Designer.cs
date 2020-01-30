@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
+            this.btnSala1 = new System.Windows.Forms.Button();
+            this.btnSala7 = new System.Windows.Forms.Button();
+            this.btnSala8 = new System.Windows.Forms.Button();
+            this.btnSala11 = new System.Windows.Forms.Button();
+            this.btnSala9 = new System.Windows.Forms.Button();
+            this.btnSala10 = new System.Windows.Forms.Button();
+            this.btnSala6 = new System.Windows.Forms.Button();
+            this.btnSala5 = new System.Windows.Forms.Button();
+            this.btnSala4 = new System.Windows.Forms.Button();
+            this.btnSala3 = new System.Windows.Forms.Button();
+            this.btnSala2 = new System.Windows.Forms.Button();
+            this.btnSala12 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -54,185 +54,197 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "FUNCIONES";
             // 
-            // button1
+            // btnSala1
             // 
-            this.button1.BackColor = System.Drawing.Color.SeaGreen;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(165, 181);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 53);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "SALA 1";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnSala1.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala1.FlatAppearance.BorderSize = 0;
+            this.btnSala1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala1.ForeColor = System.Drawing.Color.White;
+            this.btnSala1.Location = new System.Drawing.Point(165, 181);
+            this.btnSala1.Name = "btnSala1";
+            this.btnSala1.Size = new System.Drawing.Size(123, 53);
+            this.btnSala1.TabIndex = 7;
+            this.btnSala1.Text = "SALA 1";
+            this.btnSala1.UseVisualStyleBackColor = false;
+            this.btnSala1.Click += new System.EventHandler(this.btnSala1_Click);
             // 
-            // button2
+            // btnSala7
             // 
-            this.button2.BackColor = System.Drawing.Color.SeaGreen;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(527, 288);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 53);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "SALA 7";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnSala7.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala7.FlatAppearance.BorderSize = 0;
+            this.btnSala7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala7.ForeColor = System.Drawing.Color.White;
+            this.btnSala7.Location = new System.Drawing.Point(527, 288);
+            this.btnSala7.Name = "btnSala7";
+            this.btnSala7.Size = new System.Drawing.Size(123, 53);
+            this.btnSala7.TabIndex = 8;
+            this.btnSala7.Text = "SALA 7";
+            this.btnSala7.UseVisualStyleBackColor = false;
+            this.btnSala7.Click += new System.EventHandler(this.btnSala7_Click);
             // 
-            // button3
+            // btnSala8
             // 
-            this.button3.BackColor = System.Drawing.Color.SeaGreen;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(707, 288);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 53);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "SALA 8";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnSala8.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala8.FlatAppearance.BorderSize = 0;
+            this.btnSala8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala8.ForeColor = System.Drawing.Color.White;
+            this.btnSala8.Location = new System.Drawing.Point(707, 288);
+            this.btnSala8.Name = "btnSala8";
+            this.btnSala8.Size = new System.Drawing.Size(123, 53);
+            this.btnSala8.TabIndex = 9;
+            this.btnSala8.Text = "SALA 8";
+            this.btnSala8.UseVisualStyleBackColor = false;
+            this.btnSala8.Click += new System.EventHandler(this.btnSala8_Click);
             // 
-            // button4
+            // btnSala11
             // 
-            this.button4.BackColor = System.Drawing.Color.SeaGreen;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(527, 396);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 53);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "SALA 11";
-            this.button4.UseVisualStyleBackColor = false;
+            this.btnSala11.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala11.FlatAppearance.BorderSize = 0;
+            this.btnSala11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala11.ForeColor = System.Drawing.Color.White;
+            this.btnSala11.Location = new System.Drawing.Point(527, 396);
+            this.btnSala11.Name = "btnSala11";
+            this.btnSala11.Size = new System.Drawing.Size(123, 53);
+            this.btnSala11.TabIndex = 10;
+            this.btnSala11.Text = "SALA 11";
+            this.btnSala11.UseVisualStyleBackColor = false;
+            this.btnSala11.Click += new System.EventHandler(this.btnSala11_Click);
             // 
-            // button5
+            // btnSala9
             // 
-            this.button5.BackColor = System.Drawing.Color.SeaGreen;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(165, 396);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 53);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "SALA 9";
-            this.button5.UseVisualStyleBackColor = false;
+            this.btnSala9.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala9.FlatAppearance.BorderSize = 0;
+            this.btnSala9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala9.ForeColor = System.Drawing.Color.White;
+            this.btnSala9.Location = new System.Drawing.Point(165, 396);
+            this.btnSala9.Name = "btnSala9";
+            this.btnSala9.Size = new System.Drawing.Size(123, 53);
+            this.btnSala9.TabIndex = 11;
+            this.btnSala9.Text = "SALA 9";
+            this.btnSala9.UseVisualStyleBackColor = false;
+            this.btnSala9.Click += new System.EventHandler(this.btnSala9_Click);
             // 
-            // button6
+            // btnSala10
             // 
-            this.button6.BackColor = System.Drawing.Color.SeaGreen;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(347, 396);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(123, 53);
-            this.button6.TabIndex = 12;
-            this.button6.Text = "SALA 10";
-            this.button6.UseVisualStyleBackColor = false;
+            this.btnSala10.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala10.FlatAppearance.BorderSize = 0;
+            this.btnSala10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala10.ForeColor = System.Drawing.Color.White;
+            this.btnSala10.Location = new System.Drawing.Point(347, 396);
+            this.btnSala10.Name = "btnSala10";
+            this.btnSala10.Size = new System.Drawing.Size(123, 53);
+            this.btnSala10.TabIndex = 12;
+            this.btnSala10.Text = "SALA 10";
+            this.btnSala10.UseVisualStyleBackColor = false;
+            this.btnSala10.Click += new System.EventHandler(this.btnSala10_Click);
             // 
-            // button7
+            // btnSala6
             // 
-            this.button7.BackColor = System.Drawing.Color.SeaGreen;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(347, 288);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(123, 53);
-            this.button7.TabIndex = 13;
-            this.button7.Text = "SALA 6";
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnSala6.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala6.FlatAppearance.BorderSize = 0;
+            this.btnSala6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala6.ForeColor = System.Drawing.Color.White;
+            this.btnSala6.Location = new System.Drawing.Point(347, 288);
+            this.btnSala6.Name = "btnSala6";
+            this.btnSala6.Size = new System.Drawing.Size(123, 53);
+            this.btnSala6.TabIndex = 13;
+            this.btnSala6.Text = "SALA 6";
+            this.btnSala6.UseVisualStyleBackColor = false;
+            this.btnSala6.Click += new System.EventHandler(this.btnSala6_Click);
             // 
-            // button8
+            // btnSala5
             // 
-            this.button8.BackColor = System.Drawing.Color.SeaGreen;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(165, 288);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(123, 53);
-            this.button8.TabIndex = 14;
-            this.button8.Text = "SALA 5";
-            this.button8.UseVisualStyleBackColor = false;
+            this.btnSala5.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala5.FlatAppearance.BorderSize = 0;
+            this.btnSala5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala5.ForeColor = System.Drawing.Color.White;
+            this.btnSala5.Location = new System.Drawing.Point(165, 288);
+            this.btnSala5.Name = "btnSala5";
+            this.btnSala5.Size = new System.Drawing.Size(123, 53);
+            this.btnSala5.TabIndex = 14;
+            this.btnSala5.Text = "SALA 5";
+            this.btnSala5.UseVisualStyleBackColor = false;
+            this.btnSala5.Click += new System.EventHandler(this.btnSala5_Click);
             // 
-            // button9
+            // btnSala4
             // 
-            this.button9.BackColor = System.Drawing.Color.SeaGreen;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(707, 181);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(123, 53);
-            this.button9.TabIndex = 15;
-            this.button9.Text = "SALA 4";
-            this.button9.UseVisualStyleBackColor = false;
+            this.btnSala4.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala4.FlatAppearance.BorderSize = 0;
+            this.btnSala4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala4.ForeColor = System.Drawing.Color.White;
+            this.btnSala4.Location = new System.Drawing.Point(707, 181);
+            this.btnSala4.Name = "btnSala4";
+            this.btnSala4.Size = new System.Drawing.Size(123, 53);
+            this.btnSala4.TabIndex = 15;
+            this.btnSala4.Text = "SALA 4";
+            this.btnSala4.UseVisualStyleBackColor = false;
+            this.btnSala4.Click += new System.EventHandler(this.btnSala4_Click);
             // 
-            // button10
+            // btnSala3
             // 
-            this.button10.BackColor = System.Drawing.Color.SeaGreen;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(527, 181);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(123, 53);
-            this.button10.TabIndex = 16;
-            this.button10.Text = "SALA 3";
-            this.button10.UseVisualStyleBackColor = false;
+            this.btnSala3.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala3.FlatAppearance.BorderSize = 0;
+            this.btnSala3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala3.ForeColor = System.Drawing.Color.White;
+            this.btnSala3.Location = new System.Drawing.Point(527, 181);
+            this.btnSala3.Name = "btnSala3";
+            this.btnSala3.Size = new System.Drawing.Size(123, 53);
+            this.btnSala3.TabIndex = 16;
+            this.btnSala3.Text = "SALA 3";
+            this.btnSala3.UseVisualStyleBackColor = false;
+            this.btnSala3.Click += new System.EventHandler(this.btnSala3_Click);
             // 
-            // button11
+            // btnSala2
             // 
-            this.button11.BackColor = System.Drawing.Color.SeaGreen;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(347, 181);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(123, 53);
-            this.button11.TabIndex = 17;
-            this.button11.Text = "SALA 2";
-            this.button11.UseVisualStyleBackColor = false;
+            this.btnSala2.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala2.FlatAppearance.BorderSize = 0;
+            this.btnSala2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala2.ForeColor = System.Drawing.Color.White;
+            this.btnSala2.Location = new System.Drawing.Point(347, 181);
+            this.btnSala2.Name = "btnSala2";
+            this.btnSala2.Size = new System.Drawing.Size(123, 53);
+            this.btnSala2.TabIndex = 17;
+            this.btnSala2.Text = "SALA 2";
+            this.btnSala2.UseVisualStyleBackColor = false;
+            this.btnSala2.Click += new System.EventHandler(this.btnSala2_Click);
             // 
-            // button12
+            // btnSala12
             // 
-            this.button12.BackColor = System.Drawing.Color.SeaGreen;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(707, 396);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(123, 53);
-            this.button12.TabIndex = 18;
-            this.button12.Text = "SALA 12";
-            this.button12.UseVisualStyleBackColor = false;
+            this.btnSala12.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnSala12.FlatAppearance.BorderSize = 0;
+            this.btnSala12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnSala12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSala12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSala12.ForeColor = System.Drawing.Color.White;
+            this.btnSala12.Location = new System.Drawing.Point(707, 396);
+            this.btnSala12.Name = "btnSala12";
+            this.btnSala12.Size = new System.Drawing.Size(123, 53);
+            this.btnSala12.TabIndex = 18;
+            this.btnSala12.Text = "SALA 12";
+            this.btnSala12.UseVisualStyleBackColor = false;
+            this.btnSala12.Click += new System.EventHandler(this.btnSala12_Click);
             // 
             // Funciones
             // 
@@ -240,18 +252,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 612);
-            this.Controls.Add(this.button12);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSala12);
+            this.Controls.Add(this.btnSala2);
+            this.Controls.Add(this.btnSala3);
+            this.Controls.Add(this.btnSala4);
+            this.Controls.Add(this.btnSala5);
+            this.Controls.Add(this.btnSala6);
+            this.Controls.Add(this.btnSala10);
+            this.Controls.Add(this.btnSala9);
+            this.Controls.Add(this.btnSala11);
+            this.Controls.Add(this.btnSala8);
+            this.Controls.Add(this.btnSala7);
+            this.Controls.Add(this.btnSala1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Funciones";
@@ -264,17 +276,17 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btnSala1;
+        private System.Windows.Forms.Button btnSala7;
+        private System.Windows.Forms.Button btnSala8;
+        private System.Windows.Forms.Button btnSala11;
+        private System.Windows.Forms.Button btnSala9;
+        private System.Windows.Forms.Button btnSala10;
+        private System.Windows.Forms.Button btnSala6;
+        private System.Windows.Forms.Button btnSala5;
+        private System.Windows.Forms.Button btnSala4;
+        private System.Windows.Forms.Button btnSala3;
+        private System.Windows.Forms.Button btnSala2;
+        private System.Windows.Forms.Button btnSala12;
     }
 }

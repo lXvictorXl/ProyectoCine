@@ -185,7 +185,7 @@ namespace GUI_MODERNISTA
             string query = "select p.Id, p.Nombre, p.Genero, CONVERT(datetime,p.Duracion), p.Fecha_Estreno,p.Estado,c.nombre " +
                 "from Pelicula as p,Clasificacion as c where p.nombre= '" + nombrePelicula + "' and c.Id=p.fk_id_clasificacion";
 
-            using (conexion  = new SqlConnection(cadenaConexion))
+            using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(query, conexion);
 
@@ -216,9 +216,9 @@ namespace GUI_MODERNISTA
             }
             return pelicula;
         }
-        public bool insertarPeliculaBD(Pelicula pelicula,string ruta)
+        public bool insertarPeliculaBD(Pelicula pelicula, string ruta)
         {
-            int idClasificacion=0;
+            int idClasificacion = 0;
             bool registrado = false;
             switch (pelicula.clasificacion)
             {
@@ -238,21 +238,21 @@ namespace GUI_MODERNISTA
 
             }
             string consulta = "insert into Pelicula (Nombre,Genero,Duracion,Fecha_Estreno,Estado,fk_Id_Clasificacion,Imagen) " +
-                "SELECT '"+pelicula.nombre+"','"+pelicula.genero+"','"+pelicula.duracion.TimeOfDay+"','"+pelicula.fechaEstreno.Date+"',"+idClasificacion+",'1',* " +
-                "from OpenRowset(Bulk '"+ruta+"',Single_Blob)As Imagen";
-            
+                "SELECT '" + pelicula.nombre + "','" + pelicula.genero + "','" + pelicula.duracion.TimeOfDay + "','" + pelicula.fechaEstreno.Date.ToString("yyyy-MM-dd") + "','" + pelicula.estado + "'," + idClasificacion + ",* " +
+                "from OpenRowset(Bulk '" + ruta + "',Single_Blob)As Imagen";
+
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
-               
+
                 try
                 {
                     conexion.Open();
                     command.ExecuteNonQuery();
 
                     conexion.Close();
-                    registrado=true;
+                    registrado = true;
                 }
                 catch (Exception ex)
                 {
@@ -261,8 +261,50 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
-            
-    
+        public bool modicarPeliculaBD(Pelicula pelicula)
+        {
+            int idClasificacion = 0;
+            bool modificado = false;
+            switch (pelicula.clasificacion)
+            {
+                case "A":
+                    idClasificacion = 1;
+                    break;
+                case "A+13":
+                    idClasificacion = 2;
+                    break;
+                case "A+16":
+                    idClasificacion = 3;
+                    break;
+                case "A+18":
+                    idClasificacion = 4;
+                    break;
+            }
+            string consulta = "update Pelicula " +
+                "set Nombre='" + pelicula.nombre + "',Genero='" + pelicula.genero + "',Duracion='" + pelicula.duracion.TimeOfDay + "',Fecha_Estreno = '" + pelicula.fechaEstreno + "',Estado = '" + pelicula.estado + "',fk_Id_Clasificacion = " + idClasificacion + " " +
+                " where Nombre='" + pelicula.nombre + "'";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    modificado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return modificado;
+        }
+
+
 
 
         ////FUNCIONES PARA INICIO DE SESION
