@@ -54,7 +54,7 @@
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\ClassCartelera.cs" />
     <Compile Include="ConexionBD y Consultas\Conexion_Consulta.cs" />
-    <Compile Include="ConsultaCajas.cs" />
+    <Compile Include="Clases\ConsultaCajas.cs" />
     <Compile Include="Forms SupervisorCajero\DesignarCajero.cs">
       <SubType>Form</SubType>
     </Compile>
