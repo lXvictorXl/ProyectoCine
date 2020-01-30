@@ -187,8 +187,18 @@
             // 
             this.cmbNroSala.FormattingEnabled = true;
             this.cmbNroSala.Items.AddRange(new object[] {
-            "2D",
-            "3D"});
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
             this.cmbNroSala.Location = new System.Drawing.Point(654, 301);
             this.cmbNroSala.Name = "cmbNroSala";
             this.cmbNroSala.Size = new System.Drawing.Size(68, 21);
