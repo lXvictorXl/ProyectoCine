@@ -136,15 +136,15 @@
             this.dgvPelicula.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPelicula.Location = new System.Drawing.Point(40, 67);
             this.dgvPelicula.Name = "dgvPelicula";
-            this.dgvPelicula.Size = new System.Drawing.Size(410, 142);
+            this.dgvPelicula.Size = new System.Drawing.Size(476, 142);
             this.dgvPelicula.TabIndex = 12;
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(553, 67);
+            this.dataGridView1.Location = new System.Drawing.Point(592, 67);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(334, 142);
+            this.dataGridView1.Size = new System.Drawing.Size(419, 142);
             this.dataGridView1.TabIndex = 13;
             // 
             // btnFuncion
@@ -166,7 +166,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(550, 257);
+            this.label3.Location = new System.Drawing.Point(589, 249);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 16;
@@ -178,7 +178,7 @@
             this.cmbFuncion.Items.AddRange(new object[] {
             "2D",
             "3D"});
-            this.cmbFuncion.Location = new System.Drawing.Point(654, 249);
+            this.cmbFuncion.Location = new System.Drawing.Point(828, 249);
             this.cmbFuncion.Name = "cmbFuncion";
             this.cmbFuncion.Size = new System.Drawing.Size(68, 21);
             this.cmbFuncion.TabIndex = 17;
@@ -199,7 +199,7 @@
             "10",
             "11",
             "12"});
-            this.cmbNroSala.Location = new System.Drawing.Point(654, 301);
+            this.cmbNroSala.Location = new System.Drawing.Point(828, 301);
             this.cmbNroSala.Name = "cmbNroSala";
             this.cmbNroSala.Size = new System.Drawing.Size(68, 21);
             this.cmbNroSala.TabIndex = 18;
@@ -208,7 +208,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(550, 309);
+            this.label5.Location = new System.Drawing.Point(589, 309);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 19;

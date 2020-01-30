@@ -308,7 +308,7 @@ namespace GUI_MODERNISTA
         public List<ClassCartelera> GetFunciones()
         {
             List<ClassCartelera> dgvcartelera = new List<ClassCartelera>();
-            string consulta = "Select  p.Id, p.nombre, p.Genero, p.Fecha_Estreno, p.Estado, c.Nombre" +
+            string consulta = "Select  p.Id, p.nombre, p.Genero, p.Fecha_Estreno, c.Nombre" +
                 " From Pelicula p, Clasificacion c" +
                 " where c.Id = fk_Id_Clasificacion and p.estado = 'ACTIVO'";
 
@@ -328,8 +328,7 @@ namespace GUI_MODERNISTA
                         pelicula.nombre = reader.GetString(1);
                         pelicula.genero = reader.GetString(2);
                         pelicula.fechaEstreno = reader.GetDateTime(3);
-                        pelicula.estado = reader.GetString(4);
-                        pelicula.clasificacion = reader.GetString(5);
+                        pelicula.clasificacion = reader.GetString(4);
                         dgvcartelera.Add(pelicula);
 
                     }
