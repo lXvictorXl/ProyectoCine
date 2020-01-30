@@ -26,13 +26,32 @@ namespace GUI_MODERNISTA
         {
             Conexion_Consulta listaPeliculas = new Conexion_Consulta();
             List<ClassCartelera> lista = listaPeliculas.GetFunciones();
-            dgvCartelera.DataSource = null;
-            dgvCartelera.DataSource = lista;
+            dgvPelicula.DataSource = null;
+            dgvPelicula.DataSource = lista;
+            foreach (ClassCartelera cartelera in lista)
+                {
+                cmbIdPelicula.Items.Add(cartelera.id);
+                }
         }
 
         private void Cartelera_Load(object sender, EventArgs e)
         {
             cargarDGV();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbIdPelicula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPelicula_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
