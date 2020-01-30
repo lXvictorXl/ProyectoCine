@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections;
 using System.IO;
+using System.Windows.Forms;
 
 namespace GUI_MODERNISTA
 {
@@ -347,6 +348,169 @@ namespace GUI_MODERNISTA
 
             }
             return empleado;
+        }
+
+        public List<Cajero> Get()
+        {
+            List<Cajero> empleado = new List<Cajero>();
+            string consulta = "select distinct e.Id,e.Nombre,e.Apellido_paterno,e.Apellido_Materno " +
+                "from Empleado e, Cargo c, Empleado_Cargo ec " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+
+                        Cajero cajero = new Cajero();
+                        cajero.id = reader.GetInt32(0);
+                        cajero.nombre = reader.GetString(1);
+                        cajero.apPaterno = reader.GetString(2);
+                        cajero.apMaterno = reader.GetString(3);
+                        empleado.Add(cajero);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return empleado;
+        }
+
+        public Empleado cajeroID(string ID)
+        {
+            Empleado empleado = new Empleado();
+            string consulta = "select distinct e.Nombre, e.Apellido_Paterno, e.Apellido_Materno, e.Ci, e.Celular, e.Direccion, e.Password " +
+                "from Empleado e, Cargo c, Empleado_Cargo ec " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3 and e.Id='" + ID + "'";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        empleado.nombre = reader.GetString(0);
+                        empleado.apPaterno = reader.GetString(1);
+                        empleado.apMaterno = reader.GetString(2);
+                        empleado.ci = reader.GetString(3);
+                        empleado.cel = reader.GetInt32(4);
+                        empleado.direccion = reader.GetString(5);
+                        empleado.password = reader.GetString(6);
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return empleado;
+        }
+
+        public Empleado modificarCajero(int ID)
+        {
+            Empleado empleado = new Empleado();
+            string consulta =
+            "update Empleado set Nombre='{0}', Apellido_Paterno='{1}', Apellido_Materno='{2}', Ci='[3]', Celular={4}, Direccion='{5}', Password='{6}'" +
+            " where Id='" + ID + "'";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(cadenaConexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        empleado.nombre = reader.GetString(0);
+                        empleado.apPaterno = reader.GetString(1);
+                        empleado.apMaterno = reader.GetString(2);
+                        empleado.ci = reader.GetString(3);
+                        empleado.cel = reader.GetInt32(4);
+                        empleado.direccion = reader.GetString(5);
+                        empleado.password = reader.GetString(6);
+                    }
+                    reader.Close();
+                    conexion.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+                return empleado;
+            }
+        }
+
+        public bool insertarCajero(Empleado empleado)
+        {
+            bool registrado = false;
+            string consulta = "insert into Empleado (Ci, Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nac, Celular, Direccion, Password, Estado)" +
+                " values('" + empleado.ci + "', '" + empleado.nombre + "', '" + empleado.apPaterno + "', '" + empleado.apMaterno + "', '" + empleado.fechaNac + "', " + empleado.cel + ", '" + empleado.direccion + "', '" + empleado.password + "', 1)";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
+        // FUNCION PARA MODIFICACION DE PERFIL
+        public bool modificarPerfil(Empleado empleado)
+        {
+
+            bool modificado = false;
+            string consulta = "UPDATE  Empleado  " +
+                "set Celular=" + empleado.cel + ",Direccion='" + empleado.direccion + "',Password='" + empleado.password + "' " +
+                "where Ci = '" + empleado.ci + "' ";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    modificado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return modificado;
         }
 
     }
