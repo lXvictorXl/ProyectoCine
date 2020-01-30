@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=(localdb)\\Servidor;Initial Catalog=CineBD;Integrated Security=True";
+        private string cadenaConexion = "Data Source=TENYASHA;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=07359741";
 
         SqlConnection conexion;
 
@@ -331,8 +331,7 @@ namespace GUI_MODERNISTA
                         pelicula.nombre = reader.GetString(1);
                         pelicula.genero = reader.GetString(2);
                         pelicula.fechaEstreno = reader.GetDateTime(3);
-                        pelicula.estado = reader.GetString(4);
-                        pelicula.clasificacion = reader.GetString(5);
+                        pelicula.clasificacion = reader.GetString(4);
                         dgvcartelera.Add(pelicula);
 
                     }
@@ -544,10 +543,10 @@ namespace GUI_MODERNISTA
             return registrado;
         }
 
-        public void ImprimirCajaChica(ConsultaCajas cajachica, int id)
-        {
+       // public void ImprimirCajaChica(ConsultaCajas cajachica, int id)
+        //{
 
-        }
+        //}
 
 
         // FUNCION PARA MODIFICACION DE PERFIL
