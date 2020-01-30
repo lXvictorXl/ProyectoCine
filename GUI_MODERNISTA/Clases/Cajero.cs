@@ -12,6 +12,6 @@ namespace GUI_MODERNISTA
         public string nombre { get; set; }
         public string apPaterno { get; set; }
         public string apMaterno { get; set; }
-        
+
     }
 }
