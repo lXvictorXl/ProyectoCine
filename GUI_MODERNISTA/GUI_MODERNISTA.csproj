@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Cajero.cs" />
     <Compile Include="CineBDDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -52,6 +53,8 @@
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="ConexionBD y Consultas\Conexion_Consulta.cs" />
+    <Compile Include="Clases\DetalleFactura.cs" />
+    <Compile Include="Clases\FacturaCliente.cs" />
     <Compile Include="Forms SupervisorCajero\DesignarCajero.cs">
       <SubType>Form</SubType>
     </Compile>

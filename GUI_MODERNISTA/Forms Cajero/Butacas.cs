@@ -15,7 +15,9 @@ namespace GUI_MODERNISTA
     {
         public delegate void pasar(ArrayList lista);
         public event pasar pasado;
-
+        DateTime fechaHoraFuncion;
+        string nombrePelicula = "";
+        Empleado empleado = new Empleado();
         ArrayList listaTickets;
         int idFuncionSala;
         string tipoFuncion = "";
@@ -24,10 +26,13 @@ namespace GUI_MODERNISTA
         {
             InitializeComponent();
         }
-        public Butacas(int idFS,int nroS,ArrayList listaTick,string tipo)
+        public Butacas(int idFS,int nroS,ArrayList listaTick,string tipo,Empleado em,DateTime horario,string nombreP)
         {
             listaTickets = new ArrayList();
             InitializeComponent();
+            empleado = em;
+            fechaHoraFuncion = horario;
+            nombrePelicula = nombreP;
             idFuncionSala = idFS;
             lblSala.Text = nroS.ToString();
             listaTickets = listaTick;
@@ -147,7 +152,6 @@ namespace GUI_MODERNISTA
                 nuevoBoton[indice].BackColor = Color.LightBlue;
                 cantidadBotonesSeleccionados++;
                 ticket1.NroButaca = indice;
-                ti
                 ticket1.fkFuncionSala = idFuncionSala;
                 if (tipoFuncion.Contains("2"))
                 {
@@ -159,7 +163,11 @@ namespace GUI_MODERNISTA
                 }
                 Conexion_Consulta costo = new Conexion_Consulta();
                 ticket1.PrecioFinal = costo.costoTicket(ticket1.fkIdCosto);
-
+                ticket1.PrecioOriginal = costo.costoTicket(ticket1.fkIdCosto);
+                ticket1.NroSala = Convert.ToInt32(lblSala.Text);
+                ticket1.NombreEmpleado = empleado.nombre;
+                ticket1.FechaHoraFuncion = fechaHoraFuncion;
+                ticket1.TituloPelicula = nombrePelicula;
                 listaTickets.Add(ticket1);
             }
             else if (nuevoBoton[indice].BackColor == Color.LightBlue)

@@ -107,9 +107,9 @@ namespace GUI_MODERNISTA
             ArrayList TodasLasFunciones = new ArrayList();
             Funcion_Sala funcionSala;
 
-            string consulta = "Select Distinct fs.id, f.tipo,f.hora_fecha,s.nro,f.id " +
+            string consulta = "Select Distinct fs.id, f.tipo,f.hora_fecha,s.nro,f.id,p.nombre " +
             "from Pelicula p,Funcion f, funcion_sala fs,sala s " +
-            "where CONVERT(date, Hora_Fecha)= '" + dia + "'  and fk_Id_pelicula = " + idPeli + " and fs.fk_Id_Funcion = f.id and fs.fk_Nro_Sala = s.Nro " +
+            "where CONVERT(date, Hora_Fecha)= '" + dia + "'  and fk_Id_pelicula = " + idPeli + " and fs.fk_Id_Funcion = f.id and fs.fk_Nro_Sala = s.Nro and p.Id=f.fk_Id_pelicula " +
             "order by f.tipo, f.Hora_Fecha";
 
             conexion = new SqlConnection(cadenaConexion);
@@ -127,6 +127,7 @@ namespace GUI_MODERNISTA
                 funcionSala.Fecha_Hora = reader.GetDateTime(2);
                 funcionSala.Nro_Sala = reader.GetInt32(3);
                 funcionSala.Id_Funcion = reader.GetInt32(4);
+                funcionSala.NombrePelicula = reader.GetString(5);
                 TodasLasFunciones.Add(funcionSala);
             }
             reader.Close();
@@ -177,6 +178,8 @@ namespace GUI_MODERNISTA
 
             return costo;
         }
+
+        
         /////////FUNCIONES PARA ADMINISTRADOR DE CARTELERA
         ///
         public Pelicula InfoPelicula(string nombrePelicula)

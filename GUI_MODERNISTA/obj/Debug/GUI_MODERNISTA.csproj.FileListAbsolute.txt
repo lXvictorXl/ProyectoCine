@@ -171,3 +171,6 @@ C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MO
 C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.csproj.GenerateResource.cache
 C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.exe
 C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.pdb
+C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.exe.config
+C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.exe
+C:\Users\HP\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.pdb
