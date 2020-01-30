@@ -7,13 +7,12 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections;
 using System.IO;
-using System.Windows.Forms;
 
 namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=TENYASHA;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=07359741";
+        private string cadenaConexion = "Data Source=DAVE;Initial Catalog=CineBD;Integrated Security=True";
 
         SqlConnection conexion;
 
@@ -26,6 +25,7 @@ namespace GUI_MODERNISTA
         {
             try
             {
+
                 SqlCommand comando = new SqlCommand();
                 comando.CommandText = strComando;
                 comando.Connection = this.EstablecerConexion();
@@ -51,7 +51,7 @@ namespace GUI_MODERNISTA
 
             string consulta = "Select DISTINCT p.Id,p.Nombre,p.Genero,c.Nombre " +
                               "from Pelicula as p,Funcion f,Clasificacion c " +
-                               "where CONVERT(date,f.Hora_Fecha)='" + dia + "'  and p.Id=f.fk_Id_pelicula and p.fk_Id_Clasificacion=c.Id";
+                               "where CONVERT(date,f.Hora_Fecha)='"+dia+"'  and p.Id=f.fk_Id_pelicula and p.fk_Id_Clasificacion=c.Id";
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
@@ -135,48 +135,7 @@ namespace GUI_MODERNISTA
             return TodasLasFunciones;
         }
 
-        public ArrayList Butacas_Vendidas(int idFuncionSala)
-        {
-            ArrayList butacasVendidas = new ArrayList();
-            string consulta = "select fk_nro_Butaca " +
-                              "from Ticket " +
-                              "where fk_Id_Funcion_Sala = " + idFuncionSala + "";
 
-            conexion = new SqlConnection(cadenaConexion);
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-
-            conexion.Open();
-            SqlDataReader reader = comando.ExecuteReader();
-            while (reader.Read())
-            {
-                butacasVendidas.Add(reader.GetInt32(0));
-            }
-            reader.Close();
-            conexion.Close();
-
-            return butacasVendidas;
-        }
-
-        public decimal costoTicket(int idCostoTicket)
-        {
-            decimal costo = 0;
-
-            string consulta = "select precio from costo_ticket where id=" + idCostoTicket + "";
-            conexion = new SqlConnection(cadenaConexion);
-            SqlCommand comando = new SqlCommand(consulta, conexion);
-            conexion.Open();
-            SqlDataReader reader = comando.ExecuteReader();
-
-
-            if (reader.Read())
-            {
-                costo = reader.GetDecimal(0);
-            }
-            reader.Close();
-            conexion.Close();
-
-            return costo;
-        }
         /////////FUNCIONES PARA ADMINISTRADOR DE CARTELERA
         ///
         public Pelicula InfoPelicula(string nombrePelicula)
@@ -186,7 +145,7 @@ namespace GUI_MODERNISTA
             string query = "select p.Id, p.Nombre, p.Genero, CONVERT(datetime,p.Duracion), p.Fecha_Estreno,p.Estado,c.nombre " +
                 "from Pelicula as p,Clasificacion as c where p.nombre= '" + nombrePelicula + "' and c.Id=p.fk_id_clasificacion";
 
-            using (conexion = new SqlConnection(cadenaConexion))
+            using (conexion  = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(query, conexion);
 
@@ -217,9 +176,9 @@ namespace GUI_MODERNISTA
             }
             return pelicula;
         }
-        public bool insertarPeliculaBD(Pelicula pelicula, string ruta)
+        public bool insertarPeliculaBD(Pelicula pelicula,string ruta)
         {
-            int idClasificacion = 0;
+            int idClasificacion=0;
             bool registrado = false;
             switch (pelicula.clasificacion)
             {
@@ -239,21 +198,21 @@ namespace GUI_MODERNISTA
 
             }
             string consulta = "insert into Pelicula (Nombre,Genero,Duracion,Fecha_Estreno,Estado,fk_Id_Clasificacion,Imagen) " +
-                "SELECT '" + pelicula.nombre + "','" + pelicula.genero + "','" + pelicula.duracion.TimeOfDay + "','" + pelicula.fechaEstreno.Date.ToString("yyyy-MM-dd") + "','" + pelicula.estado + "'," + idClasificacion + ",* " +
-                "from OpenRowset(Bulk '" + ruta + "',Single_Blob)As Imagen";
-
+                "SELECT '"+pelicula.nombre+"','"+pelicula.genero+"','"+pelicula.duracion.TimeOfDay+"','"+pelicula.fechaEstreno.Date+"',"+idClasificacion+",'1',* " +
+                "from OpenRowset(Bulk '"+ruta+"',Single_Blob)As Imagen";
+            
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
-
+               
                 try
                 {
                     conexion.Open();
                     command.ExecuteNonQuery();
 
                     conexion.Close();
-                    registrado = true;
+                    registrado=true;
                 }
                 catch (Exception ex)
                 {
@@ -262,126 +221,17 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
-        public bool modificarPeliculaBD(Pelicula pelicula)
-        {
-            int idClasificacion = 0;
-            bool modificado = false;
-            switch (pelicula.clasificacion)
-            {
-                case "A":
-                    idClasificacion = 1;
-                    break;
-                case "A+13":
-                    idClasificacion = 2;
-                    break;
-                case "A+16":
-                    idClasificacion = 3;
-                    break;
-                case "A+18":
-                    idClasificacion = 4;
-                    break;
-            }
-            string consulta = "update Pelicula " +
-                "set Nombre='" + pelicula.nombre + "',Genero='" + pelicula.genero + "',Duracion='" + pelicula.duracion.TimeOfDay + "',Fecha_Estreno = '" + pelicula.fechaEstreno + "',Estado = '" + pelicula.estado + "',fk_Id_Clasificacion = " + idClasificacion + " " +
-                " where Nombre='" + pelicula.nombre + "'";
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    command.ExecuteNonQuery();
-
-                    conexion.Close();
-                    modificado = true;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Hay un error en la bd " + ex.Message);
-                }
-            }
-            return modificado;
-        }
-
-        public List<ClassCartelera> GetFunciones()
-        {
-            List<ClassCartelera> dgvcartelera = new List<ClassCartelera>();
-            string consulta = "Select  p.Id, p.nombre, p.Genero, p.Fecha_Estreno, c.Nombre" +
-                " From Pelicula p, Clasificacion c" +
-                " where c.Id = fk_Id_Clasificacion and p.estado = 'ACTIVO'";
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-                try
-                {
-                    conexion.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-
-                    while (reader.Read())
-                    {
-                       ClassCartelera pelicula = new ClassCartelera();
-                        pelicula.id = reader.GetInt32(0);
-                        pelicula.nombre = reader.GetString(1);
-                        pelicula.genero = reader.GetString(2);
-                        pelicula.fechaEstreno = reader.GetDateTime(3);
-                        pelicula.clasificacion = reader.GetString(4);
-                        dgvcartelera.Add(pelicula);
-
-
-                    }
-                    reader.Close();
-                    conexion.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Hay un problema con la base de datos" + ex.ToString());
-                }
-            }
-            return dgvcartelera;
-        }
-
-
-        public bool insertarFuncionDB(ClassFuncion funcion) 
-        {
-            bool registrado = false;
-
-            string consulta = "insert into Funcion (Tipo,Hora_Fecha,fk_Id_Empleado,fk_Id_Pelicula) " +
-            " SELECT '" + funcion.tipo + "','" + funcion.hora_fecha.Date.ToString("yyyy-MM-dd") + "'," + funcion.id_empleado + "," + funcion.pelicula + "";
-
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    command.ExecuteNonQuery();
-
-                    conexion.Close();
-                    registrado = true;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Hay un error en la bd " + ex.Message);
-                }
-            }
-            return registrado;
-
-        }
+            
+    
 
 
         ////FUNCIONES PARA INICIO DE SESION
-        public Empleado devolverEmpleado(string ci, string password, string cargo)
+        public Empleado devolverEmpleado(string ci,string password,string cargo)
         {
             Empleado empleado = new Empleado();
             string consulta = "select e.id,e.ci,e.nombre,e.apellido_Paterno,e.Apellido_materno,e.Fecha_Nac,e.Celular,e.Direccion,e.Password,e.Estado,c.id,c.nombre " +
                 "from empleado e, cargo c, empleado_cargo ec " +
-                "where e.ci = '" + ci + "' and e.password = '" + password + "' and ec.fk_Id_Empleado = e.Id and ec.fk_Id_Cargo = c.Id and c.Nombre = '" + cargo + "'and e.Estado=1";
+                "where e.ci = '"+ci+"' and e.password = '"+password+"' and ec.fk_Id_Empleado = e.Id and ec.fk_Id_Cargo = c.Id and c.Nombre = '"+cargo+ "'and e.Estado=1";
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
@@ -394,8 +244,8 @@ namespace GUI_MODERNISTA
                     {
                         empleado.id = reader.GetInt32(0);
                         empleado.ci = reader.GetString(1);
-                        empleado.nombre = reader.GetString(2);
-                        empleado.apPaterno = reader.GetString(3);
+                        empleado.nombre= reader.GetString(2);
+                        empleado.apPaterno= reader.GetString(3);
                         empleado.apMaterno = reader.GetString(4);
                         empleado.fechaNac = reader.GetDateTime(5);
                         empleado.cel = reader.GetInt32(6);
@@ -416,168 +266,13 @@ namespace GUI_MODERNISTA
             }
             return empleado;
         }
-
-        //FUNCIONES PARA EL ADMINISTRADOR DE CAJEROS
-        public List<Cajero> Get()
+        public bool  modificarPerfil(Empleado empleado )
         {
-            List<Cajero> empleado = new List<Cajero>();
-            string consulta = "select distinct e.Id,e.Nombre,e.Apellido_paterno,e.Apellido_Materno " +
-                "from Empleado e, Cargo c, Empleado_Cargo ec " +
-                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3";
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-
-                        Cajero cajero = new Cajero();
-                        cajero.id = reader.GetInt32(0);
-                        cajero.nombre = reader.GetString(1);
-                        cajero.apPaterno = reader.GetString(2);
-                        cajero.apMaterno = reader.GetString(3);
-                        empleado.Add(cajero);
-
-                    }
-                    reader.Close();
-                    conexion.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
-                }
-            }
-            return empleado;
-        }
-
-        public Empleado cajeroID(string ID)
-        {
-            Empleado empleado = new Empleado();
-            string consulta = "select distinct e.Nombre, e.Apellido_Paterno, e.Apellido_Materno, e.Ci, e.Celular, e.Direccion, e.Password " +
-                "from Empleado e, Cargo c, Empleado_Cargo ec " +
-                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3 and e.Id='" + ID + "' and e.Estado=1";
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        empleado.nombre = reader.GetString(0);
-                        empleado.apPaterno = reader.GetString(1);
-                        empleado.apMaterno = reader.GetString(2);
-                        empleado.ci = reader.GetString(3);
-                        empleado.cel = reader.GetInt32(4);
-                        empleado.direccion = reader.GetString(5);
-                        empleado.password = reader.GetString(6);
-                    }
-                    reader.Close();
-                    conexion.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
-                }
-            }
-            return empleado;
-        }
-
-        public bool modificarCajero(Empleado empleado, int ID)
-        {
-            bool registrado = false;
-            string consulta =
-            "update Empleado set Nombre='" + empleado.nombre + "', Apellido_Paterno='" + empleado.apPaterno + "', Apellido_Materno='" + empleado.apMaterno + "', Ci='" + empleado.ci + "', Celular=" + empleado.cel + ", Direccion='" + empleado.direccion + "', Password='" + empleado.password + "'" +
-            " where Id='" + ID + "' and Estado=1";
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    command.ExecuteNonQuery();
-
-                    conexion.Close();
-                    registrado = true;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Hay un error en la bd " + ex.Message);
-                }
-            }
-            return registrado;
-        }
-
-        public bool insertarCajero(Empleado empleado)
-        {
-            bool registrado = false;
-            string consulta = "insert into Empleado (Ci, Nombre, Apellido_Paterno, Apellido_Materno, Fecha_Nac, Celular, Direccion, Password, Estado)" +
-                " values('" + empleado.ci + "', '" + empleado.nombre + "', '" + empleado.apPaterno + "', '" + empleado.apMaterno + "', '" + empleado.fechaNac + "', " + empleado.cel + ", '" + empleado.direccion + "', '" + empleado.password + "', 1)";
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    command.ExecuteNonQuery();
-
-                    conexion.Close();
-                    registrado = true;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Hay un error en la bd " + ex.Message);
-                }
-            }
-            return registrado;
-        }
-
-        public bool eliminarCuenta(Empleado empleado, int ID)
-        {
-            bool registrado = true;
-            string consulta = "update Empleado set Estado=0 where Id=" + ID + "";
-
-            using (conexion = new SqlConnection(cadenaConexion))
-            {
-                SqlCommand command = new SqlCommand(consulta, conexion);
-
-                try
-                {
-                    conexion.Open();
-                    command.ExecuteNonQuery();
-
-                    conexion.Close();
-                    registrado = false;
-                }
-                catch (Exception ex)
-                {
-                    throw new Exception("Hay un error en la bd " + ex.Message);
-                }
-            }
-            return registrado;
-        }
-
-
-        // FUNCION PARA MODIFICACION DE PERFIL
-        public bool modificarPerfil(Empleado empleado)
-        {
-
+            
             bool modificado = false;
             string consulta = "UPDATE  Empleado  " +
-                "set Celular=" + empleado.cel + ",Direccion='" + empleado.direccion + "',Password='" + empleado.password + "' " +
-                "where Ci = '" + empleado.ci + "' ";
+                "set Celular="+empleado.cel+",Direccion='"+empleado.direccion+"',Password='"+empleado.password+"' "+
+                "where Ci = '" + empleado.ci+ "' ";
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
@@ -597,6 +292,84 @@ namespace GUI_MODERNISTA
             }
             return modificado;
         }
+        public bool modificarCliente(Cliente cliente)
+        {
 
+            bool modificado = false;
+            string consulta = "UPDATE  Cliente  " +
+                "set Nit_Ci='"+cliente.ciNit+"', Nombre='" + cliente.nombre + "',Apellido='" + cliente.apellido + "',Celular="+ cliente.cel+" " +
+                "where Nit_Ci = '" + cliente.ciNit + "' ";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    modificado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return modificado;
+        }
+        public Cliente infoCliente(string nit_Ci)
+        {
+            Cliente cliente = new Cliente();
+            string consulta = "Select * from Cliente where Nit_Ci=" + nit_Ci + "";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cliente.ciNit = reader.GetString(0);
+                        cliente.nombre = reader.GetString(1);
+                        cliente.apellido = reader.GetString(2);
+                        cliente.cel = reader.GetInt32(3);
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return cliente;
+        }
+        public bool insertaCliente(Cliente cliente)
+        {
+            bool registrado = false;
+            string consulta = "Insert Into Cliente(Nit_Ci,Nombre,Apellido,Celular) values('" + cliente.ciNit + "','" + cliente.nombre + "','" + cliente.apellido + "'," + cliente.cel + ")";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
     }
 }
