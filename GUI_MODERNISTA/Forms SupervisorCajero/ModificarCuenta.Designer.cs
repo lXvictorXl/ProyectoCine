@@ -280,6 +280,7 @@
             this.btnEliminar.TabIndex = 33;
             this.btnEliminar.Text = "ELIMINAR CUENTA";
             this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // empleadoBindingSource
             // 

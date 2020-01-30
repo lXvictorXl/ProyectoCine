@@ -51,7 +51,7 @@ namespace GUI_MODERNISTA
 
             string consulta = "Select DISTINCT p.Id,p.Nombre,p.Genero,c.Nombre " +
                               "from Pelicula as p,Funcion f,Clasificacion c " +
-                               "where CONVERT(date,f.Hora_Fecha)='"+dia+"'  and p.Id=f.fk_Id_pelicula and p.fk_Id_Clasificacion=c.Id";
+                               "where CONVERT(date,f.Hora_Fecha)='" + dia + "'  and p.Id=f.fk_Id_pelicula and p.fk_Id_Clasificacion=c.Id";
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
@@ -140,11 +140,11 @@ namespace GUI_MODERNISTA
             ArrayList butacasVendidas = new ArrayList();
             string consulta = "select fk_nro_Butaca " +
                               "from Ticket " +
-                              "where fk_Id_Funcion_Sala = "+idFuncionSala+"";
+                              "where fk_Id_Funcion_Sala = " + idFuncionSala + "";
 
             conexion = new SqlConnection(cadenaConexion);
             SqlCommand comando = new SqlCommand(consulta, conexion);
-           
+
             conexion.Open();
             SqlDataReader reader = comando.ExecuteReader();
             while (reader.Read())
@@ -161,7 +161,7 @@ namespace GUI_MODERNISTA
         {
             decimal costo = 0;
 
-            string consulta = "select precio from costo_ticket where id="+idCostoTicket+"";
+            string consulta = "select precio from costo_ticket where id=" + idCostoTicket + "";
             conexion = new SqlConnection(cadenaConexion);
             SqlCommand comando = new SqlCommand(consulta, conexion);
             conexion.Open();
@@ -170,7 +170,7 @@ namespace GUI_MODERNISTA
 
             if (reader.Read())
             {
-                costo=reader.GetDecimal(0);
+                costo = reader.GetDecimal(0);
             }
             reader.Close();
             conexion.Close();
@@ -309,12 +309,12 @@ namespace GUI_MODERNISTA
 
 
         ////FUNCIONES PARA INICIO DE SESION
-        public Empleado devolverEmpleado(string ci,string password,string cargo)
+        public Empleado devolverEmpleado(string ci, string password, string cargo)
         {
             Empleado empleado = new Empleado();
             string consulta = "select e.id,e.ci,e.nombre,e.apellido_Paterno,e.Apellido_materno,e.Fecha_Nac,e.Celular,e.Direccion,e.Password,e.Estado,c.id,c.nombre " +
                 "from empleado e, cargo c, empleado_cargo ec " +
-                "where e.ci = '"+ci+"' and e.password = '"+password+"' and ec.fk_Id_Empleado = e.Id and ec.fk_Id_Cargo = c.Id and c.Nombre = '"+cargo+ "'and e.Estado=1";
+                "where e.ci = '" + ci + "' and e.password = '" + password + "' and ec.fk_Id_Empleado = e.Id and ec.fk_Id_Cargo = c.Id and c.Nombre = '" + cargo + "'and e.Estado=1";
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
@@ -327,8 +327,8 @@ namespace GUI_MODERNISTA
                     {
                         empleado.id = reader.GetInt32(0);
                         empleado.ci = reader.GetString(1);
-                        empleado.nombre= reader.GetString(2);
-                        empleado.apPaterno= reader.GetString(3);
+                        empleado.nombre = reader.GetString(2);
+                        empleado.apPaterno = reader.GetString(3);
                         empleado.apMaterno = reader.GetString(4);
                         empleado.fechaNac = reader.GetDateTime(5);
                         empleado.cel = reader.GetInt32(6);
@@ -349,7 +349,7 @@ namespace GUI_MODERNISTA
             }
             return empleado;
         }
-       
+
         //FUNCIONES PARA EL ADMINISTRADOR DE CAJEROS
         public List<Cajero> Get()
         {
@@ -394,7 +394,7 @@ namespace GUI_MODERNISTA
             Empleado empleado = new Empleado();
             string consulta = "select distinct e.Nombre, e.Apellido_Paterno, e.Apellido_Materno, e.Ci, e.Celular, e.Direccion, e.Password " +
                 "from Empleado e, Cargo c, Empleado_Cargo ec " +
-                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3 and e.Id='" + ID + "'";
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3 and e.Id='" + ID + "' and e.Estado=1";
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
@@ -429,7 +429,7 @@ namespace GUI_MODERNISTA
             bool registrado = false;
             string consulta =
             "update Empleado set Nombre='" + empleado.nombre + "', Apellido_Paterno='" + empleado.apPaterno + "', Apellido_Materno='" + empleado.apMaterno + "', Ci='" + empleado.ci + "', Celular=" + empleado.cel + ", Direccion='" + empleado.direccion + "', Password='" + empleado.password + "'" +
-            " where Id='" + ID + "'";
+            " where Id='" + ID + "' and Estado=1";
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
@@ -476,6 +476,33 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
+
+        public bool eliminarCuenta(Empleado empleado, int ID)
+        {
+            bool registrado = true;
+            string consulta = "update Empleado set Estado=0 where Id=" + ID + "";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = false;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
+
+
         // FUNCION PARA MODIFICACION DE PERFIL
         public bool modificarPerfil(Empleado empleado)
         {
