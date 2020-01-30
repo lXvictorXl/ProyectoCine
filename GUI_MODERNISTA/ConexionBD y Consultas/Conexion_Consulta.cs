@@ -262,7 +262,7 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
-        public bool modicarPeliculaBD(Pelicula pelicula)
+        public bool modificarPeliculaBD(Pelicula pelicula)
         {
             int idClasificacion = 0;
             bool modificado = false;

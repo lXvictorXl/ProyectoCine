@@ -99,7 +99,7 @@ namespace GUI_MODERNISTA
 
 
             Conexion_Consulta insertarPelicula = new Conexion_Consulta();
-            bool modificado = insertarPelicula.modicarPeliculaBD(pelicula);
+            bool modificado = insertarPelicula.modificarPeliculaBD(pelicula);
             if (modificado)
             {
                 MessageBox.Show("Se modifico Correctamente");
