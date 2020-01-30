@@ -443,6 +443,33 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
+        // FUNCION PARA MODIFICACION DE PERFIL
+        public bool modificarPerfil(Empleado empleado)
+        {
+
+            bool modificado = false;
+            string consulta = "UPDATE  Empleado  " +
+                "set Celular=" + empleado.cel + ",Direccion='" + empleado.direccion + "',Password='" + empleado.password + "' " +
+                "where Ci = '" + empleado.ci + "' ";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    modificado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return modificado;
+        }
 
     }
 }
