@@ -28,6 +28,10 @@ namespace GUI_MODERNISTA
             List<ClassCartelera> lista = listaPeliculas.GetFunciones();
             dgvPelicula.DataSource = null;
             dgvPelicula.DataSource = lista;
+            foreach (ClassCartelera cartelera in lista)
+                {
+                cmbIdPelicula.Items.Add(cartelera.id);
+                }
         }
 
         private void Cartelera_Load(object sender, EventArgs e)
@@ -36,6 +40,16 @@ namespace GUI_MODERNISTA
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbIdPelicula_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvPelicula_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIdSala = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHorario = new System.Windows.Forms.TextBox();
@@ -43,6 +42,7 @@
             this.cmbFuncion = new System.Windows.Forms.ComboBox();
             this.cmbNroSala = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.cmbIdPelicula = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPelicula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -57,14 +57,6 @@
             this.label1.Size = new System.Drawing.Size(144, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "CARTELERA";
-            // 
-            // txtIdSala
-            // 
-            this.txtIdSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdSala.Location = new System.Drawing.Point(120, 231);
-            this.txtIdSala.Name = "txtIdSala";
-            this.txtIdSala.Size = new System.Drawing.Size(54, 24);
-            this.txtIdSala.TabIndex = 1;
             // 
             // label2
             // 
@@ -82,9 +74,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(37, 323);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "FECHA/HORA:";
+            this.label4.Text = "HORARIOS:";
             // 
             // txtHorario
             // 
@@ -138,6 +130,7 @@
             this.dgvPelicula.Name = "dgvPelicula";
             this.dgvPelicula.Size = new System.Drawing.Size(476, 142);
             this.dgvPelicula.TabIndex = 12;
+            this.dgvPelicula.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPelicula_CellContentClick);
             // 
             // dataGridView1
             // 
@@ -175,9 +168,6 @@
             // cmbFuncion
             // 
             this.cmbFuncion.FormattingEnabled = true;
-            this.cmbFuncion.Items.AddRange(new object[] {
-            "2D",
-            "3D"});
             this.cmbFuncion.Location = new System.Drawing.Point(828, 249);
             this.cmbFuncion.Name = "cmbFuncion";
             this.cmbFuncion.Size = new System.Drawing.Size(68, 21);
@@ -214,12 +204,22 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "ID SALA:";
             // 
+            // cmbIdPelicula
+            // 
+            this.cmbIdPelicula.FormattingEnabled = true;
+            this.cmbIdPelicula.Location = new System.Drawing.Point(120, 242);
+            this.cmbIdPelicula.Name = "cmbIdPelicula";
+            this.cmbIdPelicula.Size = new System.Drawing.Size(68, 21);
+            this.cmbIdPelicula.TabIndex = 20;
+            this.cmbIdPelicula.SelectedIndexChanged += new System.EventHandler(this.cmbIdPelicula_SelectedIndexChanged);
+            // 
             // Cartelera
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 612);
+            this.Controls.Add(this.cmbIdPelicula);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbNroSala);
             this.Controls.Add(this.cmbFuncion);
@@ -233,7 +233,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtHorario);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtIdSala);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cartelera";
@@ -249,7 +248,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIdSala;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtHorario;
@@ -263,5 +261,6 @@
         private System.Windows.Forms.ComboBox cmbFuncion;
         private System.Windows.Forms.ComboBox cmbNroSala;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbIdPelicula;
     }
 }

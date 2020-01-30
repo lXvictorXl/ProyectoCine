@@ -323,13 +323,14 @@ namespace GUI_MODERNISTA
 
                     while (reader.Read())
                     {
-                        ClassCartelera pelicula = new ClassCartelera();
+                       ClassCartelera pelicula = new ClassCartelera();
                         pelicula.id = reader.GetInt32(0);
                         pelicula.nombre = reader.GetString(1);
                         pelicula.genero = reader.GetString(2);
                         pelicula.fechaEstreno = reader.GetDateTime(3);
                         pelicula.clasificacion = reader.GetString(4);
                         dgvcartelera.Add(pelicula);
+
 
                     }
                     reader.Close();
@@ -344,6 +345,34 @@ namespace GUI_MODERNISTA
         }
 
 
+        public bool insertarFuncionDB(ClassFuncion funcion) 
+        {
+            bool registrado = false;
+
+            string consulta = "insert into Funcion (Tipo,Hora_Fecha,fk_Id_Empleado,fk_Id_Pelicula) " +
+            " SELECT '" + funcion.tipo + "','" + funcion.hora_fecha.Date.ToString("yyyy-MM-dd") + "'," + funcion.id_empleado + "," + funcion.pelicula + "";
+
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+
+        }
 
 
         ////FUNCIONES PARA INICIO DE SESION
