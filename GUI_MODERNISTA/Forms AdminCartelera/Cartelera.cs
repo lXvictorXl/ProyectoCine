@@ -26,13 +26,18 @@ namespace GUI_MODERNISTA
         {
             Conexion_Consulta listaPeliculas = new Conexion_Consulta();
             List<ClassCartelera> lista = listaPeliculas.GetFunciones();
-            dgvCartelera.DataSource = null;
-            dgvCartelera.DataSource = lista;
+            dgvPelicula.DataSource = null;
+            dgvPelicula.DataSource = lista;
         }
 
         private void Cartelera_Load(object sender, EventArgs e)
         {
             cargarDGV();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
