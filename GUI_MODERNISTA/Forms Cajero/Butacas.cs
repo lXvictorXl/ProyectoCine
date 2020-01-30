@@ -147,7 +147,7 @@ namespace GUI_MODERNISTA
                 nuevoBoton[indice].BackColor = Color.LightBlue;
                 cantidadBotonesSeleccionados++;
                 ticket1.NroButaca = indice;
-                ti
+                //ti
                 ticket1.fkFuncionSala = idFuncionSala;
                 if (tipoFuncion.Contains("2"))
                 {

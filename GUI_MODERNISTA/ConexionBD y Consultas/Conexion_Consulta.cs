@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;User ID=sa;Password=1234";
+        private string cadenaConexion = "Data Source=(localdb)\\Servidor;Initial Catalog=CineBD;Integrated Security=True";
 
         SqlConnection conexion;
 
@@ -307,7 +307,8 @@ namespace GUI_MODERNISTA
             }
             return empleado;
         }
-
+       
+        //FUNCIONES PARA EL ADMINISTRADOR DE CAJEROS
         public List<Cajero> Get()
         {
             List<Cajero> empleado = new List<Cajero>();
@@ -381,41 +382,31 @@ namespace GUI_MODERNISTA
             return empleado;
         }
 
-        public Empleado modificarCajero(int ID)
+        public bool modificarCajero(Empleado empleado, int ID)
         {
-            Empleado empleado = new Empleado();
+            bool registrado = false;
             string consulta =
-            "update Empleado set Nombre='{0}', Apellido_Paterno='{1}', Apellido_Materno='{2}', Ci='[3]', Celular={4}, Direccion='{5}', Password='{6}'" +
+            "update Empleado set Nombre='" + empleado.nombre + "', Apellido_Paterno='" + empleado.apPaterno + "', Apellido_Materno='" + empleado.apMaterno + "', Ci='" + empleado.ci + "', Celular=" + empleado.cel + ", Direccion='" + empleado.direccion + "', Password='" + empleado.password + "'" +
             " where Id='" + ID + "'";
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
-                SqlCommand command = new SqlCommand(cadenaConexion);
+                SqlCommand command = new SqlCommand(consulta, conexion);
 
                 try
                 {
                     conexion.Open();
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        empleado.nombre = reader.GetString(0);
-                        empleado.apPaterno = reader.GetString(1);
-                        empleado.apMaterno = reader.GetString(2);
-                        empleado.ci = reader.GetString(3);
-                        empleado.cel = reader.GetInt32(4);
-                        empleado.direccion = reader.GetString(5);
-                        empleado.password = reader.GetString(6);
-                    }
-                    reader.Close();
-                    conexion.Close();
+                    command.ExecuteNonQuery();
 
+                    conexion.Close();
+                    registrado = true;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                    throw new Exception("Hay un error en la bd " + ex.Message);
                 }
-                return empleado;
             }
+            return registrado;
         }
 
         public bool insertarCajero(Empleado empleado)
