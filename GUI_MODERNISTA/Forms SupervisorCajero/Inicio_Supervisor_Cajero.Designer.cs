@@ -32,12 +32,13 @@
             // 
             // Inicio_Supervisor_Cajero
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GUI_MODERNISTA.Properties.Resources.PicsArt_01_27_01_07_00;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1058, 893);
+            this.ClientSize = new System.Drawing.Size(939, 583);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Inicio_Supervisor_Cajero";
             this.Text = "Inicio_Supervisor_Cajero";
             this.ResumeLayout(false);
