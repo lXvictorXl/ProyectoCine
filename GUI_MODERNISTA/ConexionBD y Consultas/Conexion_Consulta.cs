@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=TENYASHA;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=07359741";
+        private string cadenaConexion = "Data Source=(localdb)\\Servidor;Initial Catalog=CineBD;Integrated Security=True";
 
         SqlConnection conexion;
 
@@ -539,6 +539,11 @@ namespace GUI_MODERNISTA
                 }
             }
             return registrado;
+        }
+
+        public void ImprimirCajaChica(ConsultaCajas cajachica, int id)
+        {
+
         }
 
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace GUI_MODERNISTA
 {
@@ -20,6 +21,15 @@ namespace GUI_MODERNISTA
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+        private void cargarCajaChica()
+        {
+            
+        }
+
+        private void manejo_Load(object sender, EventArgs e)
+        {
+            cargarCajaChica();
         }
     }
 }
