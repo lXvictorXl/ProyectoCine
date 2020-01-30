@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=(localdb)\\Servidor;Initial Catalog=CineBD;Integrated Security=True";
+        private string cadenaConexion = "Data Source=TENYASHA;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=07359741";
 
         SqlConnection conexion;
 
@@ -262,7 +262,7 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
-        public bool modicarPeliculaBD(Pelicula pelicula)
+        public bool modificarPeliculaBD(Pelicula pelicula)
         {
             int idClasificacion = 0;
             bool modificado = false;
@@ -303,6 +303,45 @@ namespace GUI_MODERNISTA
                 }
             }
             return modificado;
+        }
+
+        public List<ClassCartelera> GetFunciones()
+        {
+            List<ClassCartelera> dgvcartelera = new List<ClassCartelera>();
+            string consulta = "Select  p.Id, p.nombre, p.Genero, p.Fecha_Estreno, p.Estado, c.Nombre" +
+                " From Pelicula p, Clasificacion c" +
+                " where c.Id = fk_Id_Clasificacion and p.estado = 'ACTIVO'";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+
+                    while (reader.Read())
+                    {
+                        ClassCartelera pelicula = new ClassCartelera();
+                        pelicula.id = reader.GetInt32(0);
+                        pelicula.nombre = reader.GetString(1);
+                        pelicula.genero = reader.GetString(2);
+                        pelicula.fechaEstreno = reader.GetDateTime(3);
+                        pelicula.estado = reader.GetString(4);
+                        pelicula.clasificacion = reader.GetString(5);
+                        dgvcartelera.Add(pelicula);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la base de datos" + ex.ToString());
+                }
+            }
+            return dgvcartelera;
         }
 
 

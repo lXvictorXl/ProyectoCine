@@ -147,6 +147,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cartelera";
             this.Text = "productos";
+            this.Load += new System.EventHandler(this.Cartelera_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCartelera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
