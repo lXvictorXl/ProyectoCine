@@ -15,15 +15,22 @@ namespace GUI_MODERNISTA
     public partial class Factura : Form
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         Empleado empleado = new Empleado();
 =======
        
 >>>>>>> parent of 2994725... Backup Resubido
+=======
+        Empleado empleado = new Empleado();
+>>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
         public Factura()
         {
             InitializeComponent();
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
         public Factura(Empleado em)
         {
             InitializeComponent();
@@ -244,6 +251,9 @@ namespace GUI_MODERNISTA
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
 
 
         //No hacen ni madres
@@ -274,6 +284,9 @@ namespace GUI_MODERNISTA
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
         
         private void picCartelera_Click(object sender, EventArgs e)
 =======
@@ -305,6 +318,11 @@ namespace GUI_MODERNISTA
             {
                 MessageBox.Show("hay un error");
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
