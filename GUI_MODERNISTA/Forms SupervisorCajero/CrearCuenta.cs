@@ -29,7 +29,7 @@ namespace GUI_MODERNISTA
             empleado.nombre = txtNombre.Text;
             empleado.apPaterno = txtAP.Text;
             empleado.apMaterno = txtAM.Text;
-            empleado.fechaNac = Convert.ToDateTime(txtFecha);
+            empleado.fechaNac = Convert.ToDateTime(txtFecha.Text);
             empleado.cel = Convert.ToInt32(txtCelular.Text);
             empleado.direccion = txtDireccion.Text;
             empleado.password = txtPassword.Text;

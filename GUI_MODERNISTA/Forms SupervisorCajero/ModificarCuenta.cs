@@ -26,15 +26,13 @@ namespace GUI_MODERNISTA
             CargarDGV();
         }
 
-        private void CargarDatos()
-        {
-
-        }
-
         private void CargarDGV()
         {
             Conexion_Consulta listaCajeros = new Conexion_Consulta();
-            dgvEmpleados.DataSource = listaCajeros.Get();
+            List<Cajero> lista = listaCajeros.Get();
+
+            dgvEmpleados.DataSource = null;
+            dgvEmpleados.DataSource = lista;
         }
 
         private void btnEmpleados_Click(object sender, EventArgs e)
@@ -58,19 +56,19 @@ namespace GUI_MODERNISTA
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-
             Empleado empleado = new Empleado();
+            Conexion_Consulta modificarCajero = new Conexion_Consulta();
             empleado.nombre = txtNombre.Text;
             empleado.apPaterno = txtAP.Text;
-            empleado.apPaterno = txtAM.Text;
+            empleado.apMaterno = txtAM.Text;
             empleado.ci = txtCI.Text;
             empleado.cel = Convert.ToInt32(txtCelular.Text);
             empleado.direccion = txtDireccion.Text;
             empleado.password = txtPassword.Text;
             
             
-            /*Conexion_Consulta insertarCajero = new Conexion_Consulta();
-            bool modificado = insertarCajero.modificarCajero(empleado);
+            Conexion_Consulta cambiarCajero = new Conexion_Consulta();
+            bool modificado = cambiarCajero.modificarCajero(empleado, Convert.ToInt32(txtId.Text));
             if (modificado)
             {
                 MessageBox.Show("Se modifico correctamente");
@@ -81,8 +79,35 @@ namespace GUI_MODERNISTA
             {
                 MessageBox.Show("Ocurrio un error");
             }
-            CargarDGV();*/
+            CargarDGV();
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Empleado empleado = new Empleado();
+            empleado.nombre = txtNombre.Text;
+            empleado.apPaterno = txtAP.Text;
+            empleado.apMaterno = txtAM.Text;
+            empleado.ci = txtCI.Text;
+            empleado.cel = Convert.ToInt32(txtCelular.Text);
+            empleado.direccion = txtDireccion.Text;
+            empleado.password = txtPassword.Text;
+
+            Conexion_Consulta eliminarCuenta = new Conexion_Consulta();
+            bool modificado = eliminarCuenta.modificarCajero(empleado, Convert.ToInt32(txtId.Text));
+            if (modificado)
+            {
+                empleado.estado = Convert.ToBoolean(0);
+                MessageBox.Show("Se elimino la cuenta correctamente");
+                Limpiar limpiar = new Limpiar();
+                limpiar.BorrarCampos(this);
+            }
+            else
+            {
+                MessageBox.Show("Ocurrio un error");
+            }
+            CargarDGV();
         }
     }
 }

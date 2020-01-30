@@ -31,7 +31,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtVirtual1 = new System.Windows.Forms.TextBox();
             this.txtCFinal9 = new System.Windows.Forms.TextBox();
             this.txtVirtual9 = new System.Windows.Forms.TextBox();
             this.txtEfectivo9 = new System.Windows.Forms.TextBox();
@@ -63,7 +62,6 @@
             this.txtEfectivo2 = new System.Windows.Forms.TextBox();
             this.txtInicial2 = new System.Windows.Forms.TextBox();
             this.txtCFinal1 = new System.Windows.Forms.TextBox();
-            this.txtVirtual2 = new System.Windows.Forms.TextBox();
             this.txtEfectivo1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
@@ -91,10 +89,14 @@
             this.label13 = new System.Windows.Forms.Label();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtInicial1 = new System.Windows.Forms.TextBox();
+            this.txtVirtual2 = new System.Windows.Forms.TextBox();
+            this.txtVirtual1 = new System.Windows.Forms.TextBox();
+            this.txtInicial9 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
             this.label15 = new System.Windows.Forms.Label();
-            this.txtInicial1 = new System.Windows.Forms.TextBox();
-            this.txtInicial9 = new System.Windows.Forms.TextBox();
+            this.dtpCajas = new System.Windows.Forms.DateTimePicker();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel12.SuspendLayout();
@@ -129,7 +131,7 @@
             // 
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(49, 70);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1159, 645);
             this.panel1.TabIndex = 9;
@@ -217,20 +219,11 @@
             this.tableLayoutPanel1.TabIndex = 8;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // txtVirtual1
-            // 
-            this.txtVirtual1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVirtual1.Location = new System.Drawing.Point(676, 80);
-            this.txtVirtual1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtVirtual1.Name = "txtVirtual1";
-            this.txtVirtual1.Size = new System.Drawing.Size(132, 22);
-            this.txtVirtual1.TabIndex = 63;
-            // 
             // txtCFinal9
             // 
             this.txtCFinal9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal9.Location = new System.Drawing.Point(890, 570);
-            this.txtCFinal9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal9.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal9.Name = "txtCFinal9";
             this.txtCFinal9.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal9.TabIndex = 62;
@@ -239,7 +232,7 @@
             // 
             this.txtVirtual9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual9.Location = new System.Drawing.Point(676, 570);
-            this.txtVirtual9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual9.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual9.Name = "txtVirtual9";
             this.txtVirtual9.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual9.TabIndex = 61;
@@ -248,7 +241,7 @@
             // 
             this.txtEfectivo9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo9.Location = new System.Drawing.Point(464, 570);
-            this.txtEfectivo9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo9.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo9.Name = "txtEfectivo9";
             this.txtEfectivo9.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo9.TabIndex = 60;
@@ -257,7 +250,7 @@
             // 
             this.txtCFinal8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal8.Location = new System.Drawing.Point(890, 507);
-            this.txtCFinal8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal8.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal8.Name = "txtCFinal8";
             this.txtCFinal8.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal8.TabIndex = 59;
@@ -266,7 +259,7 @@
             // 
             this.txtVirtual8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual8.Location = new System.Drawing.Point(676, 507);
-            this.txtVirtual8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual8.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual8.Name = "txtVirtual8";
             this.txtVirtual8.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual8.TabIndex = 58;
@@ -275,7 +268,7 @@
             // 
             this.txtEfectivo8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo8.Location = new System.Drawing.Point(464, 507);
-            this.txtEfectivo8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo8.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo8.Name = "txtEfectivo8";
             this.txtEfectivo8.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo8.TabIndex = 57;
@@ -284,7 +277,7 @@
             // 
             this.txtInicial8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial8.Location = new System.Drawing.Point(252, 507);
-            this.txtInicial8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial8.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial8.Name = "txtInicial8";
             this.txtInicial8.Size = new System.Drawing.Size(132, 22);
             this.txtInicial8.TabIndex = 56;
@@ -293,7 +286,7 @@
             // 
             this.txtCFinal7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal7.Location = new System.Drawing.Point(890, 446);
-            this.txtCFinal7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal7.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal7.Name = "txtCFinal7";
             this.txtCFinal7.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal7.TabIndex = 55;
@@ -302,7 +295,7 @@
             // 
             this.txtVirtual7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual7.Location = new System.Drawing.Point(676, 446);
-            this.txtVirtual7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual7.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual7.Name = "txtVirtual7";
             this.txtVirtual7.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual7.TabIndex = 54;
@@ -311,7 +304,7 @@
             // 
             this.txtEfectivo7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo7.Location = new System.Drawing.Point(464, 446);
-            this.txtEfectivo7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo7.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo7.Name = "txtEfectivo7";
             this.txtEfectivo7.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo7.TabIndex = 53;
@@ -320,7 +313,7 @@
             // 
             this.txtInicial7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial7.Location = new System.Drawing.Point(252, 446);
-            this.txtInicial7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial7.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial7.Name = "txtInicial7";
             this.txtInicial7.Size = new System.Drawing.Size(132, 22);
             this.txtInicial7.TabIndex = 52;
@@ -329,7 +322,7 @@
             // 
             this.txtCFinal6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal6.Location = new System.Drawing.Point(890, 385);
-            this.txtCFinal6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal6.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal6.Name = "txtCFinal6";
             this.txtCFinal6.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal6.TabIndex = 51;
@@ -338,7 +331,7 @@
             // 
             this.txtVirtual6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual6.Location = new System.Drawing.Point(676, 385);
-            this.txtVirtual6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual6.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual6.Name = "txtVirtual6";
             this.txtVirtual6.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual6.TabIndex = 50;
@@ -347,7 +340,7 @@
             // 
             this.txtEfectivo6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo6.Location = new System.Drawing.Point(464, 385);
-            this.txtEfectivo6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo6.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo6.Name = "txtEfectivo6";
             this.txtEfectivo6.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo6.TabIndex = 49;
@@ -356,7 +349,7 @@
             // 
             this.txtInicial6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial6.Location = new System.Drawing.Point(252, 385);
-            this.txtInicial6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial6.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial6.Name = "txtInicial6";
             this.txtInicial6.Size = new System.Drawing.Size(132, 22);
             this.txtInicial6.TabIndex = 48;
@@ -365,7 +358,7 @@
             // 
             this.txtCFinal5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal5.Location = new System.Drawing.Point(890, 324);
-            this.txtCFinal5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal5.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal5.Name = "txtCFinal5";
             this.txtCFinal5.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal5.TabIndex = 47;
@@ -374,7 +367,7 @@
             // 
             this.txtVirtual5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual5.Location = new System.Drawing.Point(676, 324);
-            this.txtVirtual5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual5.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual5.Name = "txtVirtual5";
             this.txtVirtual5.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual5.TabIndex = 46;
@@ -383,7 +376,7 @@
             // 
             this.txtEfectivo5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo5.Location = new System.Drawing.Point(464, 324);
-            this.txtEfectivo5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo5.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo5.Name = "txtEfectivo5";
             this.txtEfectivo5.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo5.TabIndex = 45;
@@ -392,7 +385,7 @@
             // 
             this.txtInicial5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial5.Location = new System.Drawing.Point(252, 324);
-            this.txtInicial5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial5.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial5.Name = "txtInicial5";
             this.txtInicial5.Size = new System.Drawing.Size(132, 22);
             this.txtInicial5.TabIndex = 44;
@@ -401,7 +394,7 @@
             // 
             this.txtCFinal4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal4.Location = new System.Drawing.Point(890, 263);
-            this.txtCFinal4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal4.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal4.Name = "txtCFinal4";
             this.txtCFinal4.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal4.TabIndex = 43;
@@ -410,7 +403,7 @@
             // 
             this.txtVirtual4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual4.Location = new System.Drawing.Point(676, 263);
-            this.txtVirtual4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual4.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual4.Name = "txtVirtual4";
             this.txtVirtual4.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual4.TabIndex = 42;
@@ -419,7 +412,7 @@
             // 
             this.txtEfectivo4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo4.Location = new System.Drawing.Point(464, 263);
-            this.txtEfectivo4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo4.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo4.Name = "txtEfectivo4";
             this.txtEfectivo4.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo4.TabIndex = 41;
@@ -428,7 +421,7 @@
             // 
             this.txtInicial4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial4.Location = new System.Drawing.Point(252, 263);
-            this.txtInicial4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial4.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial4.Name = "txtInicial4";
             this.txtInicial4.Size = new System.Drawing.Size(132, 22);
             this.txtInicial4.TabIndex = 40;
@@ -437,7 +430,7 @@
             // 
             this.txtCFinal3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal3.Location = new System.Drawing.Point(890, 202);
-            this.txtCFinal3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal3.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal3.Name = "txtCFinal3";
             this.txtCFinal3.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal3.TabIndex = 39;
@@ -446,7 +439,7 @@
             // 
             this.txtVirtual3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtVirtual3.Location = new System.Drawing.Point(676, 202);
-            this.txtVirtual3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtVirtual3.Margin = new System.Windows.Forms.Padding(4);
             this.txtVirtual3.Name = "txtVirtual3";
             this.txtVirtual3.Size = new System.Drawing.Size(132, 22);
             this.txtVirtual3.TabIndex = 38;
@@ -455,7 +448,7 @@
             // 
             this.txtEfectivo3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo3.Location = new System.Drawing.Point(464, 202);
-            this.txtEfectivo3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo3.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo3.Name = "txtEfectivo3";
             this.txtEfectivo3.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo3.TabIndex = 37;
@@ -464,7 +457,7 @@
             // 
             this.txtInicial3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial3.Location = new System.Drawing.Point(252, 202);
-            this.txtInicial3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial3.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial3.Name = "txtInicial3";
             this.txtInicial3.Size = new System.Drawing.Size(132, 22);
             this.txtInicial3.TabIndex = 36;
@@ -473,7 +466,7 @@
             // 
             this.txtCFinal2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal2.Location = new System.Drawing.Point(890, 141);
-            this.txtCFinal2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal2.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal2.Name = "txtCFinal2";
             this.txtCFinal2.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal2.TabIndex = 35;
@@ -482,7 +475,7 @@
             // 
             this.txtEfectivo2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo2.Location = new System.Drawing.Point(464, 141);
-            this.txtEfectivo2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo2.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo2.Name = "txtEfectivo2";
             this.txtEfectivo2.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo2.TabIndex = 33;
@@ -491,7 +484,7 @@
             // 
             this.txtInicial2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtInicial2.Location = new System.Drawing.Point(252, 141);
-            this.txtInicial2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInicial2.Margin = new System.Windows.Forms.Padding(4);
             this.txtInicial2.Name = "txtInicial2";
             this.txtInicial2.Size = new System.Drawing.Size(132, 22);
             this.txtInicial2.TabIndex = 32;
@@ -500,25 +493,16 @@
             // 
             this.txtCFinal1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtCFinal1.Location = new System.Drawing.Point(890, 80);
-            this.txtCFinal1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCFinal1.Margin = new System.Windows.Forms.Padding(4);
             this.txtCFinal1.Name = "txtCFinal1";
             this.txtCFinal1.Size = new System.Drawing.Size(132, 22);
             this.txtCFinal1.TabIndex = 31;
-            // 
-            // txtVirtual2
-            // 
-            this.txtVirtual2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtVirtual2.Location = new System.Drawing.Point(676, 141);
-            this.txtVirtual2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtVirtual2.Name = "txtVirtual2";
-            this.txtVirtual2.Size = new System.Drawing.Size(132, 22);
-            this.txtVirtual2.TabIndex = 30;
             // 
             // txtEfectivo1
             // 
             this.txtEfectivo1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtEfectivo1.Location = new System.Drawing.Point(464, 80);
-            this.txtEfectivo1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEfectivo1.Margin = new System.Windows.Forms.Padding(4);
             this.txtEfectivo1.Name = "txtEfectivo1";
             this.txtEfectivo1.Size = new System.Drawing.Size(132, 22);
             this.txtEfectivo1.TabIndex = 29;
@@ -531,7 +515,7 @@
             this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel12.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel12.Location = new System.Drawing.Point(4, 126);
-            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel12.Name = "tableLayoutPanel12";
             this.tableLayoutPanel12.RowCount = 1;
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -560,7 +544,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel7.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel7.Location = new System.Drawing.Point(4, 65);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -589,7 +573,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel6.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(852, 4);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -604,12 +588,12 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label5.Location = new System.Drawing.Point(13, 6);
+            this.label5.Location = new System.Drawing.Point(21, 16);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 40);
+            this.label5.Size = new System.Drawing.Size(162, 20);
             this.label5.TabIndex = 3;
-            this.label5.Text = "INGRESO DE CAJA FINAL";
+            this.label5.Text = "CIERRE DE CAJA";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel5
@@ -620,7 +604,7 @@
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel5.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(640, 4);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -651,7 +635,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel4.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(428, 4);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -682,7 +666,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(216, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -697,12 +681,12 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.label4.Location = new System.Drawing.Point(33, 16);
+            this.label4.Location = new System.Drawing.Point(42, 16);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 20);
+            this.label4.Size = new System.Drawing.Size(119, 20);
             this.label4.TabIndex = 2;
-            this.label4.Text = "SALDO INCIAL";
+            this.label4.Text = "CAJA CHICA";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanel3
@@ -713,7 +697,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel3.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -743,7 +727,7 @@
             this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.tableLayoutPanel9.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel9.Location = new System.Drawing.Point(4, 187);
-            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -771,7 +755,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel10.Location = new System.Drawing.Point(4, 248);
-            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -799,7 +783,7 @@
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel11.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel11.Location = new System.Drawing.Point(4, 309);
-            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -826,7 +810,7 @@
             this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel13.Controls.Add(this.label11, 0, 0);
             this.tableLayoutPanel13.Location = new System.Drawing.Point(4, 370);
-            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -853,7 +837,7 @@
             this.tableLayoutPanel14.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel14.Controls.Add(this.label13, 0, 0);
             this.tableLayoutPanel14.Location = new System.Drawing.Point(4, 431);
-            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel14.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel14.Name = "tableLayoutPanel14";
             this.tableLayoutPanel14.RowCount = 1;
             this.tableLayoutPanel14.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -880,7 +864,7 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel16.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel16.Location = new System.Drawing.Point(4, 492);
-            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -900,6 +884,42 @@
             this.label14.TabIndex = 6;
             this.label14.Text = "CAJA 8";
             // 
+            // txtInicial1
+            // 
+            this.txtInicial1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtInicial1.Location = new System.Drawing.Point(252, 80);
+            this.txtInicial1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtInicial1.Name = "txtInicial1";
+            this.txtInicial1.Size = new System.Drawing.Size(132, 22);
+            this.txtInicial1.TabIndex = 28;
+            // 
+            // txtVirtual2
+            // 
+            this.txtVirtual2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtVirtual2.Location = new System.Drawing.Point(676, 141);
+            this.txtVirtual2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtVirtual2.Name = "txtVirtual2";
+            this.txtVirtual2.Size = new System.Drawing.Size(132, 22);
+            this.txtVirtual2.TabIndex = 30;
+            // 
+            // txtVirtual1
+            // 
+            this.txtVirtual1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtVirtual1.Location = new System.Drawing.Point(676, 80);
+            this.txtVirtual1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtVirtual1.Name = "txtVirtual1";
+            this.txtVirtual1.Size = new System.Drawing.Size(132, 22);
+            this.txtVirtual1.TabIndex = 63;
+            // 
+            // txtInicial9
+            // 
+            this.txtInicial9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtInicial9.Location = new System.Drawing.Point(252, 570);
+            this.txtInicial9.Margin = new System.Windows.Forms.Padding(4);
+            this.txtInicial9.Name = "txtInicial9";
+            this.txtInicial9.Size = new System.Drawing.Size(132, 22);
+            this.txtInicial9.TabIndex = 64;
+            // 
             // tableLayoutPanel18
             // 
             this.tableLayoutPanel18.BackColor = System.Drawing.Color.DarkOrange;
@@ -907,7 +927,7 @@
             this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel18.Controls.Add(this.label15, 0, 0);
             this.tableLayoutPanel18.Location = new System.Drawing.Point(4, 553);
-            this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel18.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel18.Name = "tableLayoutPanel18";
             this.tableLayoutPanel18.RowCount = 1;
             this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -927,23 +947,28 @@
             this.label15.TabIndex = 6;
             this.label15.Text = "CAJA 9";
             // 
-            // txtInicial1
+            // dtpCajas
             // 
-            this.txtInicial1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInicial1.Location = new System.Drawing.Point(252, 80);
-            this.txtInicial1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtInicial1.Name = "txtInicial1";
-            this.txtInicial1.Size = new System.Drawing.Size(132, 22);
-            this.txtInicial1.TabIndex = 28;
+            this.dtpCajas.Location = new System.Drawing.Point(49, 34);
+            this.dtpCajas.Name = "dtpCajas";
+            this.dtpCajas.Size = new System.Drawing.Size(200, 22);
+            this.dtpCajas.TabIndex = 10;
             // 
-            // txtInicial9
+            // btnActualizar
             // 
-            this.txtInicial9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtInicial9.Location = new System.Drawing.Point(252, 570);
-            this.txtInicial9.Margin = new System.Windows.Forms.Padding(4);
-            this.txtInicial9.Name = "txtInicial9";
-            this.txtInicial9.Size = new System.Drawing.Size(132, 22);
-            this.txtInicial9.TabIndex = 64;
+            this.btnActualizar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.White;
+            this.btnActualizar.Location = new System.Drawing.Point(269, 31);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(135, 28);
+            this.btnActualizar.TabIndex = 11;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
             // 
             // manejo
             // 
@@ -951,12 +976,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1440, 753);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.dtpCajas);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "manejo";
             this.Text = "productos";
+            this.Load += new System.EventHandler(this.manejo_Load);
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -1062,5 +1090,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtInicial1;
         private System.Windows.Forms.TextBox txtInicial9;
+        private System.Windows.Forms.DateTimePicker dtpCajas;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
