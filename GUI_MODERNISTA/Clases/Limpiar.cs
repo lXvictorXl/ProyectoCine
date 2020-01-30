@@ -21,6 +21,11 @@ namespace GUI_MODERNISTA
                 {
                     ((ComboBox)txt).ResetText();
                 }
+                else if (txt is PictureBox)
+                {
+                    ((PictureBox)txt).Image = null;
+
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GUI_MODERNISTA
 {
@@ -34,6 +35,9 @@ namespace GUI_MODERNISTA
             txtDuracionPelicula.Text = peli.duracion.TimeOfDay.ToString();
             txtFechaEstreno.Text = peli.fechaEstreno.ToShortDateString().ToString();
             txtGeneroPelicula.Text = peli.genero;
+            byte[] datoImagen = modPeli.Obtener_Imagen_C(peli.id);
+            MemoryStream ms = new MemoryStream(datoImagen);
+            picImagePeli.Image = Image.FromStream(ms);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -47,18 +51,25 @@ namespace GUI_MODERNISTA
             Pelicula pelicula = new Pelicula();
             pelicula.nombre = cmbPelicula.Text;
             pelicula.genero = txtGeneroPelicula.Text;
-            pelicula.estado = cmbPelicula.Text;
-            pelicula.duracion =Convert.ToDateTime(txtDuracionPelicula.Text);
+            pelicula.estado = cmbEstadoPelicula.Text;
+            pelicula.duracion = Convert.ToDateTime(txtDuracionPelicula.Text);
             pelicula.clasificacion = cmbClasificacion.Text;
-            string ruta =txtRuta.Text;
-            
+            pelicula.fechaEstreno = Convert.ToDateTime(txtFechaEstreno.Text);
+            string ruta = txtRuta.Text;
+            Limpiar limpiar = new Limpiar();
+            limpiar.BorrarCampos(this);
+
 
 
             Conexion_Consulta insertarPelicula = new Conexion_Consulta();
-            bool registrado = insertarPelicula.insertarPeliculaBD(pelicula,ruta);
+            bool registrado = insertarPelicula.insertarPeliculaBD(pelicula, ruta);
             if (registrado)
             {
-                
+                MessageBox.Show("Se añadio Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Se han presentado fallos");
             }
         }
 
@@ -69,7 +80,34 @@ namespace GUI_MODERNISTA
             {
                 txtRuta.Text = openFileDialog.FileName;
             }
-            picImagePeli.Image=Image.FromFile(txtRuta.Text);
+            picImagePeli.Image = Image.FromFile(txtRuta.Text);
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Pelicula pelicula = new Pelicula();
+            pelicula.nombre = cmbPelicula.Text;
+            pelicula.genero = txtGeneroPelicula.Text;
+            pelicula.estado = cmbEstadoPelicula.Text;
+            pelicula.duracion = Convert.ToDateTime(txtDuracionPelicula.Text);
+            pelicula.clasificacion = cmbClasificacion.Text;
+            pelicula.fechaEstreno = Convert.ToDateTime(txtFechaEstreno.Text);
+            string ruta = txtRuta.Text;
+            Limpiar limpiar = new Limpiar();
+            limpiar.BorrarCampos(this);
+
+
+
+            Conexion_Consulta insertarPelicula = new Conexion_Consulta();
+            bool modificado = insertarPelicula.modicarPeliculaBD(pelicula);
+            if (modificado)
+            {
+                MessageBox.Show("Se modifico Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Se han presentado errores");
+            }
         }
     }
 }
