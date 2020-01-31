@@ -67,14 +67,8 @@
             this.funcionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.peliculaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.peliculaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-<<<<<<< HEAD
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.dgvInfoVenta = new System.Windows.Forms.DataGridView();
-<<<<<<< HEAD
-=======
->>>>>>> parent of 2994725... Backup Resubido
-=======
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCartelera)).BeginInit();
@@ -119,78 +113,19 @@
             this.panel1.Controls.Add(this.label11);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.panel1.Location = new System.Drawing.Point(535, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 569);
             this.panel1.TabIndex = 98;
             // 
-=======
-            this.panel1.Location = new System.Drawing.Point(664, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 721);
-            this.panel1.TabIndex = 98;
-            // 
-            // dgvInfoVenta
-            // 
-            this.dgvInfoVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInfoVenta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.dgvInfoVenta.Location = new System.Drawing.Point(-10, 213);
-            this.dgvInfoVenta.Name = "dgvInfoVenta";
-            this.dgvInfoVenta.RowHeadersWidth = 102;
-            this.dgvInfoVenta.Size = new System.Drawing.Size(372, 138);
-            this.dgvInfoVenta.TabIndex = 137;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "CANT";
-            this.Column1.MinimumWidth = 12;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 60;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "DESCRIPCION";
-            this.Column2.MinimumWidth = 12;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 120;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "UNID";
-            this.Column3.MinimumWidth = 12;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 60;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "TOTAL";
-            this.Column4.MinimumWidth = 12;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 80;
-            // 
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.panel1.Location = new System.Drawing.Point(535, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 569);
-            this.panel1.TabIndex = 98;
-            // 
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             // btnAñadir
             // 
             this.btnAñadir.Location = new System.Drawing.Point(233, 135);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(75, 20);
             this.btnAñadir.TabIndex = 136;
-            this.btnAñadir.Text = "Modificar";
+            this.btnAñadir.Text = "Añadir";
             this.btnAñadir.UseVisualStyleBackColor = true;
-            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
             // rbTarjeta
             // 
@@ -250,20 +185,11 @@
             this.btnBuscar.TabIndex = 129;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.label16.Location = new System.Drawing.Point(170, 536);
-=======
-            this.label16.Location = new System.Drawing.Point(169, 536);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.label16.Location = new System.Drawing.Point(170, 536);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(41, 13);
             this.label16.TabIndex = 109;
@@ -278,29 +204,13 @@
             this.panel2.Controls.Add(this.label14);
             this.panel2.Location = new System.Drawing.Point(18, 371);
             this.panel2.Name = "panel2";
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.panel2.Size = new System.Drawing.Size(326, 147);
-=======
-            this.panel2.Size = new System.Drawing.Size(325, 147);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.panel2.Size = new System.Drawing.Size(326, 147);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.panel2.TabIndex = 108;
             this.panel2.Visible = false;
             // 
             // btnConsultarTarjeta
             // 
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.btnConsultarTarjeta.Location = new System.Drawing.Point(235, 11);
-=======
-            this.btnConsultarTarjeta.Location = new System.Drawing.Point(236, 11);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.btnConsultarTarjeta.Location = new System.Drawing.Point(235, 11);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.btnConsultarTarjeta.Name = "btnConsultarTarjeta";
             this.btnConsultarTarjeta.Size = new System.Drawing.Size(75, 23);
             this.btnConsultarTarjeta.TabIndex = 112;
@@ -334,15 +244,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.label14.Location = new System.Drawing.Point(26, 16);
-=======
-            this.label14.Location = new System.Drawing.Point(25, 16);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.label14.Location = new System.Drawing.Point(26, 16);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(40, 13);
             this.label14.TabIndex = 0;
@@ -372,21 +274,12 @@
             // 
             // button74
             // 
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.button74.Location = new System.Drawing.Point(278, 531);
-=======
-            this.button74.Location = new System.Drawing.Point(277, 531);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.button74.Location = new System.Drawing.Point(278, 531);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.button74.Name = "button74";
             this.button74.Size = new System.Drawing.Size(75, 23);
             this.button74.TabIndex = 8;
             this.button74.Text = "Imprimir";
             this.button74.UseVisualStyleBackColor = true;
-            this.button74.Click += new System.EventHandler(this.button74_Click);
             // 
             // label13
             // 
@@ -434,15 +327,7 @@
             this.cmbPelicula.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPelicula.Font = new System.Drawing.Font("Berlin Sans FB", 9.900001F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbPelicula.FormattingEnabled = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.cmbPelicula.Location = new System.Drawing.Point(38, 128);
-=======
-            this.cmbPelicula.Location = new System.Drawing.Point(37, 128);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.cmbPelicula.Location = new System.Drawing.Point(38, 128);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.cmbPelicula.Name = "cmbPelicula";
             this.cmbPelicula.Size = new System.Drawing.Size(211, 23);
             this.cmbPelicula.TabIndex = 140;
@@ -464,21 +349,9 @@
             this.btnBuscarPeli.FlatAppearance.BorderSize = 0;
             this.btnBuscarPeli.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBuscarPeli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.900001F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.btnBuscarPeli.Location = new System.Drawing.Point(38, 159);
             this.btnBuscarPeli.Name = "btnBuscarPeli";
             this.btnBuscarPeli.Size = new System.Drawing.Size(446, 28);
-=======
-            this.btnBuscarPeli.Location = new System.Drawing.Point(37, 159);
-            this.btnBuscarPeli.Name = "btnBuscarPeli";
-            this.btnBuscarPeli.Size = new System.Drawing.Size(445, 28);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.btnBuscarPeli.Location = new System.Drawing.Point(38, 159);
-            this.btnBuscarPeli.Name = "btnBuscarPeli";
-            this.btnBuscarPeli.Size = new System.Drawing.Size(446, 28);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.btnBuscarPeli.TabIndex = 138;
             this.btnBuscarPeli.Text = "BUSCAR";
             this.btnBuscarPeli.UseVisualStyleBackColor = true;
@@ -501,15 +374,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.label7.Location = new System.Drawing.Point(218, 210);
-=======
-            this.label7.Location = new System.Drawing.Point(217, 210);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.label7.Location = new System.Drawing.Point(218, 210);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 16);
             this.label7.TabIndex = 142;
@@ -521,15 +386,7 @@
             this.lblTipoFuncion2.BackColor = System.Drawing.Color.Red;
             this.lblTipoFuncion2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTipoFuncion2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.lblTipoFuncion2.Location = new System.Drawing.Point(218, 387);
-=======
-            this.lblTipoFuncion2.Location = new System.Drawing.Point(217, 387);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.lblTipoFuncion2.Location = new System.Drawing.Point(218, 387);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.lblTipoFuncion2.Name = "lblTipoFuncion2";
             this.lblTipoFuncion2.Size = new System.Drawing.Size(137, 27);
             this.lblTipoFuncion2.TabIndex = 152;
@@ -540,15 +397,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(218, 232);
-=======
-            this.label3.Location = new System.Drawing.Point(217, 232);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.label3.Location = new System.Drawing.Point(218, 232);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 16);
             this.label3.TabIndex = 143;
@@ -557,58 +406,24 @@
             // lblGenero
             // 
             this.lblGenero.AutoSize = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.lblGenero.Location = new System.Drawing.Point(296, 211);
             this.lblGenero.Name = "lblGenero";
             this.lblGenero.Size = new System.Drawing.Size(0, 13);
-=======
-            this.lblGenero.Location = new System.Drawing.Point(299, 210);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(47, 13);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.lblGenero.Location = new System.Drawing.Point(296, 211);
-            this.lblGenero.Name = "lblGenero";
-            this.lblGenero.Size = new System.Drawing.Size(0, 13);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.lblGenero.TabIndex = 144;
-            this.lblGenero.Text = "ACCION";
             // 
             // lblClasifi
             // 
             this.lblClasifi.AutoSize = true;
             this.lblClasifi.Location = new System.Drawing.Point(346, 232);
             this.lblClasifi.Name = "lblClasifi";
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.lblClasifi.Size = new System.Drawing.Size(0, 13);
-=======
-            this.lblClasifi.Size = new System.Drawing.Size(126, 13);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.lblClasifi.Size = new System.Drawing.Size(0, 13);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.lblClasifi.TabIndex = 145;
-            this.lblClasifi.Text = "MAYORES DE 14 AÑOS";
             // 
             // picCartelera
             // 
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.picCartelera.Location = new System.Drawing.Point(38, 211);
             this.picCartelera.Name = "picCartelera";
             this.picCartelera.Size = new System.Drawing.Size(161, 240);
-=======
-            this.picCartelera.Location = new System.Drawing.Point(37, 211);
-            this.picCartelera.Name = "picCartelera";
-            this.picCartelera.Size = new System.Drawing.Size(160, 240);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.picCartelera.Location = new System.Drawing.Point(38, 211);
-            this.picCartelera.Name = "picCartelera";
-            this.picCartelera.Size = new System.Drawing.Size(161, 240);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.picCartelera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picCartelera.TabIndex = 156;
             this.picCartelera.TabStop = false;
@@ -622,7 +437,6 @@
             // 
             this.peliculaBindingSource.DataMember = "Pelicula";
             // 
-<<<<<<< HEAD
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -636,26 +450,13 @@
             this.dgvInfoVenta.TabIndex = 137;
             this.dgvInfoVenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-<<<<<<< HEAD
-=======
->>>>>>> parent of 2994725... Backup Resubido
-=======
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-<<<<<<< HEAD
-<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(890, 569);
-=======
-            this.ClientSize = new System.Drawing.Size(1019, 721);
->>>>>>> parent of 2994725... Backup Resubido
-=======
-            this.ClientSize = new System.Drawing.Size(890, 569);
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
             this.Controls.Add(this.picCartelera);
             this.Controls.Add(this.lblTipoFuncion);
             this.Controls.Add(this.label7);
@@ -730,13 +531,7 @@
         private System.Windows.Forms.Button btnConsultarTarjeta;
         private System.Windows.Forms.TextBox txtNumeroTarjeta;
         private System.Windows.Forms.ComboBox cmbTarjeta;
-<<<<<<< HEAD
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView dgvInfoVenta;
-<<<<<<< HEAD
-=======
->>>>>>> parent of 2994725... Backup Resubido
-=======
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
     }
 }

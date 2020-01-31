@@ -14,34 +14,21 @@ namespace GUI_MODERNISTA
 {
     public partial class Factura : Form
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
         Empleado empleado = new Empleado();
-=======
-       
->>>>>>> parent of 2994725... Backup Resubido
-=======
-        Empleado empleado = new Empleado();
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
         public Factura()
         {
             InitializeComponent();
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
         public Factura(Empleado em)
         {
             InitializeComponent();
             empleado = em;
         }
 
-=======
-       
->>>>>>> parent of 2994725... Backup Resubido
         ArrayList listaPelis = new ArrayList();
         ArrayList listaFuncionesSala = new ArrayList();
+        ArrayList listaButacasSeleccionadas = new ArrayList();
+        ///Cada vez que se cambia la fecha se carga al comboBox las peliculas que se exhibiran en la fecha que se cambió 
         private void dtpCartelera_ValueChanged(object sender, EventArgs e)
         {
             Conexion_Consulta lista = new Conexion_Consulta();
@@ -54,6 +41,8 @@ namespace GUI_MODERNISTA
                 cmbPelicula.Items.Add(peli.nombre);
             }
         }
+
+        //Muestra las funciones de la pelicula seleccionada en el comboBox
         private void btnBuscarPeli_Click(object sender, EventArgs e)
         {
             int idPeli = obtener_IdPeli(cmbPelicula.Text);
@@ -74,8 +63,6 @@ namespace GUI_MODERNISTA
                     break;
                 }
             }
-
-
             //crea botones en el form según la cantidad de horarios y del tipo(2D o 3D) de la 
             //pelicula elejida
             listaFuncionesSala = consulta.Buscar_Funciones_Para_Una_Peli(idPeli, dtpCartelera.Value.ToString("yyyy-MM-dd"));
@@ -96,12 +83,12 @@ namespace GUI_MODERNISTA
                     lblTipoFuncion.Visible = true;
                     lblTipoFuncion2.Visible = false;
                 }
-                else if (!tipoFuncionCambiado)/////////////////////
+                else if (!tipoFuncionCambiado)
                 {
                     lblTipoFuncion2.Text = funcionSala.Tipo + " DOBLADA";
                     lblTipoFuncion2.Visible = true;
                     cambioTipoFuncion = true;
-                    tipoFuncionCambiado = true;///////////////////////
+                    tipoFuncionCambiado = true;
                     posicionY += 30;
                     posicionX = 213;
                     lblTipoFuncion2.Location = new Point(posicionX, posicionY);
@@ -120,15 +107,16 @@ namespace GUI_MODERNISTA
                     posicionX = 213;
                 }
 
-                ////////////////////////////////////
                 tipoFuncion = funcionSala.Tipo;//para actualizar el tipo de funcion
             }
 
         }
 
 
-        Button[] nuevoBoton = new Button[15];////////
+        Button[] nuevoBoton = new Button[30];////////Varible global para crear nuevo boton
         int cantidadBotonesCreados = 0;//////
+
+        //Encuentra un id de pelicula mediante el nombre
         private int obtener_IdPeli(string nombrePeli)
         {
             int id = 0;
@@ -142,6 +130,8 @@ namespace GUI_MODERNISTA
             }
             return id;
         }
+
+        //Crea botones dinamicamente segun la cantidad de horario que se exhiba la pelicula seleccionada
         private void Crear_Boton(int numeroBoton, string horaFuncion, string numSala,
                                  int posicionX, int posicionY)
         {
@@ -157,6 +147,8 @@ namespace GUI_MODERNISTA
             this.Controls.Add(nuevoBoton[numeroBoton]);
             cantidadBotonesCreados++;
         }
+
+        //Elimina con un destructor los botones creados dinamicamente
         public void eliminarBotonesCreados()//////////////////
         {
             if (cantidadBotonesCreados > 0)
@@ -168,6 +160,8 @@ namespace GUI_MODERNISTA
                 cantidadBotonesCreados = 0;
             }
         }
+
+        //Evento click de todos los botones dinamicos creados
         private void NuevoBoton_Click(object sender, EventArgs e)
         {
 
@@ -175,7 +169,6 @@ namespace GUI_MODERNISTA
             int indice = Convert.ToInt32(btn.Name);
             Funcion_Sala funcionSala = new Funcion_Sala();
             funcionSala = (Funcion_Sala)listaFuncionesSala[indice];
-<<<<<<< HEAD
             int i = funcionSala.Id_FuncionSala;
             Butacas butaca = new Butacas(i,funcionSala.Nro_Sala,listaButacasSeleccionadas,funcionSala.Tipo,empleado,funcionSala.Fecha_Hora,funcionSala.NombrePelicula);
             
@@ -238,89 +231,21 @@ namespace GUI_MODERNISTA
 
         //Proceso del delegado
         private void Butaca_pasado(ArrayList lista)
-=======
-            int i = 1;
-            i++;
-            throw new NotImplementedException();
-        }
-
-        private void picCartelera_Click(object sender, EventArgs e)
->>>>>>> parent of 2994725... Backup Resubido
         {
-
+            listaButacasSeleccionadas = lista;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
 
 
         //No hacen ni madres
         private void timer1_Tick(object sender, EventArgs e)
-=======
-        private void btnAñadir_Click(object sender, EventArgs e)
->>>>>>> parent of 2994725... Backup Resubido
         {
-            Cliente cliente = new Cliente();
-            Conexion_Consulta consulta = new Conexion_Consulta();
-            cliente = consulta.infoCliente(txtCi.Text);
             
-            if (txtCi.Text.Equals(cliente.ciNit)) 
-            {
-                
-                cliente.nombre = txtNombre.Text;
-                cliente.apellido = txtApellido.Text;
-                cliente.cel = Convert.ToInt32(txtCelular.Text);
-                if(consulta.modificarCliente(cliente))
-               
-                MessageBox.Show("MODIFICACION CORRECTA");
-            }
-
-           else
-            {
-                MessageBox.Show("MODIFICACION incirecta");
-            }
+            
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> afeafe7027b85e271ba8902431c79057d12c1ff3
         
         private void picCartelera_Click(object sender, EventArgs e)
-=======
-        private void btnBuscar_Click(object sender, EventArgs e)
->>>>>>> parent of 2994725... Backup Resubido
-        {
-            Cliente cliente = new Cliente();
-            Conexion_Consulta consulta = new Conexion_Consulta();
-            cliente = consulta.infoCliente(txtCi.Text);
-            txtNombre.Text = cliente.nombre;
-            txtApellido.Text = cliente.apellido;
-            txtCelular.Text = cliente.cel.ToString();
-        }
-
-        private void button74_Click(object sender, EventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            Conexion_Consulta conexion = new Conexion_Consulta();
-            cliente.ciNit = txtCi.Text;
-            cliente.nombre = txtNombre.Text;
-            cliente.apellido = txtApellido.Text;
-            cliente.cel = Convert.ToInt32(txtCelular.Text);
-            bool registrado = conexion.insertaCliente(cliente);
-            if (registrado)
-            {
-                MessageBox.Show("Se añadio Correctamente");
-            }
-            else
-            {
-                MessageBox.Show("hay un error");
-            }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
