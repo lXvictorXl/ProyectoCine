@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=1234";
+        private string cadenaConexion = "Data Source=DESKTOP-PUOPVKV;Initial Catalog=CineBD;User ID=sa;Password=selenia0904";
 
         SqlConnection conexion;
 
@@ -668,6 +668,60 @@ namespace GUI_MODERNISTA
             }
             return modificado;
         }
+        public bool modificarCliente(Cliente cliente)
+        {
 
+            bool modificado = false;
+            string consulta = "UPDATE  Cliente  " +
+                "set Nit_Ci='" + cliente.ciNit + "', Nombre='" + cliente.nombre + "',Apellido='" + cliente.apellido + "',Celular=" + cliente.cel + " " +
+                "where Nit_Ci = '" + cliente.ciNit + "' ";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    modificado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return modificado;
+        }
+        public Cliente infoCliente(string nit_Ci)
+        {
+            Cliente cliente = new Cliente();
+            string consulta = "Select * from Cliente where Nit_Ci=" + nit_Ci + "";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        cliente.ciNit = reader.GetString(0);
+                        cliente.nombre = reader.GetString(1);
+                        cliente.apellido = reader.GetString(2);
+                        cliente.cel = reader.GetInt32(3);
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return cliente;
+        }
     }
 }

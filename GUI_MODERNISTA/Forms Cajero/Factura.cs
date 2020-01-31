@@ -471,6 +471,39 @@ namespace GUI_MODERNISTA
             }
             return total;
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            Conexion_Consulta consulta = new Conexion_Consulta();
+            cliente = consulta.infoCliente(txtCi.Text);
+            txtNombre.Text = cliente.nombre;
+            txtApellido.Text = cliente.apellido;
+            txtCelular.Text = cliente.cel.ToString();
+        }
+
+        private void btnAñadir_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new Cliente();
+            Conexion_Consulta consulta = new Conexion_Consulta();
+            cliente = consulta.infoCliente(txtCi.Text);
+
+            if (txtCi.Text.Equals(cliente.ciNit))
+            {
+
+                cliente.nombre = txtNombre.Text;
+                cliente.apellido = txtApellido.Text;
+                cliente.cel = Convert.ToInt32(txtCelular.Text);
+                if (consulta.modificarCliente(cliente))
+
+                    MessageBox.Show("MODIFICACION CORRECTA");
+            }
+
+            else
+            {
+                MessageBox.Show("MODIFICACION incirecta");
+            }
+        }
     }
 
         
