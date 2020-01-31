@@ -153,6 +153,7 @@ namespace GUI_MODERNISTA
                 cantidadBotonesSeleccionados++;
                 ticket1.NroButaca = indice;
                 ticket1.fkFuncionSala = idFuncionSala;
+                ticket1.Tipo = tipoFuncion;
                 if (tipoFuncion.Contains("2"))
                 {
                     ticket1.fkIdCosto = 1;

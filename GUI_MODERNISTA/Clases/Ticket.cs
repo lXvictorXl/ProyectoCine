@@ -10,6 +10,7 @@ namespace GUI_MODERNISTA
     {
         public int Nro { get; set; }
         public string TituloPelicula{get;set;}//
+        public string Tipo { get; set; }//
         public DateTime FechaHoraFuncion { get; set; }//
         public int NroSala { get; set; }//
         public int NroButaca { get; set; }//

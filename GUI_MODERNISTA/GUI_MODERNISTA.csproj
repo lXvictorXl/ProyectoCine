@@ -175,6 +175,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Clases\PromocionTicket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms SupervisorCajero\Reportes.cs">
       <SubType>Form</SubType>
@@ -183,6 +184,7 @@
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Ticket.cs" />
+    <Compile Include="Clases\Tarjeta.cs" />
     <EmbeddedResource Include="Forms AdminCartelera\Cartelera.resx">
       <DependentUpon>Cartelera.cs</DependentUpon>
     </EmbeddedResource>

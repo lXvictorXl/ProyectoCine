@@ -9,13 +9,13 @@ namespace GUI_MODERNISTA
     class FacturaCliente
     {
         public int Nro { get; set; }
-        public DateTime FechaEmision { get; set; }
-        public int fkNitCiCliente { get; set; }
-        public string NombreCliente { get; set; }
+        public DateTime FechaEmision { get; set; }//
+        public string fkNitCiCliente { get; set; }//
+        public string ApellidoCliente { get; set; }//
         public decimal Total { get; set; }
-        public int fkIdTipoPago { get; set; }
-        public int fkIdEmpleado { get; set; }
+        public int fkIdTipoPago { get; set; }//
+        public int fkIdEmpleado { get; set; }//
         
-        
+        public string NombreEmpleado { get; set; }//
     }
 }
