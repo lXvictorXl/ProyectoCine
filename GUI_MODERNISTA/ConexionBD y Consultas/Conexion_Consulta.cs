@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=TENYASHA;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=07359741";
+        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=1234";
 
         SqlConnection conexion;
 
@@ -179,7 +179,99 @@ namespace GUI_MODERNISTA
             return costo;
         }
 
-        
+        ///Consulta para obtener todos los nombres de la tarjetas
+        ///
+        public ArrayList ConsultaTarjetaCliente(string nit) 
+        {
+            ArrayList listaTarjetas = new ArrayList();
+            Tarjeta tarjeta = new Tarjeta();
+
+            string consulta = "select Distinct t.id,t.nombre,n.nro " +
+                "from Cliente c, Tarjeta t,Nro_Tarjeta n, Tarjeta_Nro_Tarjeta tnt " +
+                "where tnt.fk_Nit_Ci_Cliente='"+nit+"' and t.Id=tnt.fk_Id_Tarjeta and tnt.fk_Nro_Tarjeta=n.Nro";
+
+            conexion = new SqlConnection(cadenaConexion);
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            conexion.Open();
+            SqlDataReader reader = comando.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                tarjeta = new Tarjeta();
+
+                tarjeta.Id = reader.GetInt32(0);
+                tarjeta.Nombre= reader.GetString(1);
+                tarjeta.Numero = reader.GetString(2);
+
+                listaTarjetas.Add(tarjeta);
+            }
+            reader.Close();
+            conexion.Close();
+            return listaTarjetas;
+        }
+
+        //Consuta Promociones
+        public ArrayList consultaPromociones(string nombreTarjeta)
+        {
+            ArrayList listaPromociones = new ArrayList();
+            PromocionTicket promocion = new PromocionTicket();
+
+            string consulta = "select * from Promocion where Nombre='"+nombreTarjeta+"'";
+
+            conexion = new SqlConnection(cadenaConexion);
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            conexion.Open();
+            SqlDataReader reader = comando.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                promocion = new PromocionTicket();
+
+                promocion.id = reader.GetInt32(0);
+                promocion.Nombre = reader.GetString(1);
+                promocion.Dia = reader.GetString(2);
+                promocion.Descuento = reader.GetDecimal(3);
+
+                listaPromociones.Add(promocion);
+            }
+            reader.Close();
+            conexion.Close();
+            return listaPromociones;
+        }
+
+        //Insertar Factura a la BD
+        public int insertarFactura(FacturaCliente factura)
+        {
+            int idFactura = 0;
+
+            string consulta = "DECLARE @UltimoID INT " +
+                "insert into Factura (Fecha_Emision,Total,fk_Id_Tipo_Pago,fk_Id_Empleado,fk_Nit_Ci_Cliente) " +
+                "SELECT "+factura.FechaEmision+","+factura.Total+","+factura.fkIdTipoPago+","+factura.fkIdEmpleado+ ","+factura.fkNitCiCliente+" " +
+                "SELECT @UltimoID = SCOPE_IDENTITY()";
+
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+                command.Parameters.AddWithValue("@UltimoID", idFactura);
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                   
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return idFactura;
+        }
+
         /////////FUNCIONES PARA ADMINISTRADOR DE CARTELERA
         ///
         public Pelicula InfoPelicula(string nombrePelicula)
