@@ -245,24 +245,44 @@ namespace GUI_MODERNISTA
         public int insertarFactura(FacturaCliente factura)
         {
             int idFactura = 0;
-
-            string consulta = "DECLARE @UltimoID INT " +
-                "insert into Factura (Fecha_Emision,Total,fk_Id_Tipo_Pago,fk_Id_Empleado,fk_Nit_Ci_Cliente) " +
-                "SELECT "+factura.FechaEmision+","+factura.Total+","+factura.fkIdTipoPago+","+factura.fkIdEmpleado+ ","+factura.fkNitCiCliente+" " +
-                "SELECT @UltimoID = SCOPE_IDENTITY()";
+            string fechaEmision = factura.FechaEmision.ToString("yyyyMMdd hh:mm:ss");
+            string consulta = "insert into Factura (Fecha_Emision, Total, fk_Id_Tipo_Pago, fk_Id_Empleado, fk_Nit_Ci_Cliente) " +
+                "values ('" + fechaEmision + "', " + Convert.ToDouble(factura.Total) + ", " + factura.fkIdTipoPago + ", " + factura.fkIdEmpleado + ", '" + factura.fkNitCiCliente + "')";
 
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
-                command.Parameters.AddWithValue("@UltimoID", idFactura);
+
                 try
                 {
                     conexion.Open();
                     command.ExecuteNonQuery();
 
                     conexion.Close();
-                   
+
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            consulta = "select nro from factura";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        idFactura = reader.GetInt32(0);
+                    }
+                    reader.Close();
+                    conexion.Close();
+
                 }
                 catch (Exception ex)
                 {
@@ -271,6 +291,7 @@ namespace GUI_MODERNISTA
             }
             return idFactura;
         }
+        
 
         /////////FUNCIONES PARA ADMINISTRADOR DE CARTELERA
         ///
