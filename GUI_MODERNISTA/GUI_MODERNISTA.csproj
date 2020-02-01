@@ -181,6 +181,7 @@
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Ticket.cs" />
+    <Compile Include="Clases\Supervisor.cs" />
     <EmbeddedResource Include="Forms AdminCartelera\Cartelera.resx">
       <DependentUpon>Cartelera.cs</DependentUpon>
     </EmbeddedResource>

@@ -428,6 +428,46 @@ namespace GUI_MODERNISTA
             return empleado;
         }
 
+        public List<Supervisor> Obtener()
+        {
+
+            List<Supervisor> empleadoSupervisor = new List<Supervisor>();
+            string consulta = "select distinct e.Id,e.Nombre,e.Apellido_paterno,e.Apellido_Materno " +
+                "from Empleado e, Cargo c, Empleado_Cargo ec " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 2";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+
+                        Supervisor supervisor = new Supervisor();
+                        supervisor.id = reader.GetInt32(0);
+                        supervisor.nombre = reader.GetString(1);
+                        supervisor.apPaterno = reader.GetString(2);
+                        supervisor.apMaterno = reader.GetString(3);
+                        empleadoSupervisor.Add(supervisor);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return empleadoSupervisor;
+
+        }
+
         public Empleado cajeroID(string ID)
         {
             Empleado empleado = new Empleado();
@@ -462,6 +502,69 @@ namespace GUI_MODERNISTA
             }
             return empleado;
         }
+
+        public Supervisor supervisorReporteID (string ID)
+        {
+            Supervisor supervisor = new Supervisor();
+            string consulta = "select distinct e.Nombre, e.Apellido_Paterno, e.Apellido_Materno " +
+                "from Empleado e, Cargo c, Empleado_Cargo ec " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 2  and e.Id='" + ID + "' and e.Estado=1";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        supervisor.nombre = reader.GetString(0);
+                        supervisor.apPaterno = reader.GetString(1);
+                        supervisor.apMaterno = reader.GetString(2);
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return supervisor;
+        }
+
+        public Cajero empleadoID(string ID)
+        {
+            Cajero empleado = new Cajero();
+            string consulta = "select distinct e.Nombre, e.Apellido_Paterno, e.Apellido_Materno " +
+                "from Empleado e, Cargo c, Empleado_Cargo ec " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3  and e.Id='" + ID + "' and e.Estado=1";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        empleado.nombre = reader.GetString(0);
+                        empleado.apPaterno = reader.GetString(1);
+                        empleado.apMaterno = reader.GetString(2);
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return empleado;
+        }
+
 
         public bool modificarCajero(Empleado empleado, int ID)
         {
@@ -539,11 +642,6 @@ namespace GUI_MODERNISTA
                 }
             }
             return registrado;
-        }
-
-        public void ImprimirCajaChica(ConsultaCajas cajachica, int id)
-        {
-
         }
 
 
