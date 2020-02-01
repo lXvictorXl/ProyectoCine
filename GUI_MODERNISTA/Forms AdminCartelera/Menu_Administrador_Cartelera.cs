@@ -117,7 +117,7 @@ namespace GUI_MODERNISTA
 
         private void bntCartelera_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Cartelera());
+            AbrirFormEnPanel(new Cartelera(empleado));
         }
 
         private void btnInic_Click(object sender, EventArgs e)

@@ -413,7 +413,44 @@ namespace GUI_MODERNISTA
             }
             return modificado;
         }
+        public List<ClassFuncion> GetHorarios()
+        {
+            List<ClassFuncion> dgvHorarios = new List<ClassFuncion>();
+            string consulta = " Select f.Id, f.Tipo, f.Hora_Fecha, f.fk_Id_Empleado, f.fk_Id_Pelicula" +
+                " From Funcion f" +
+                " Order by f.fk_Id_Pelicula";
 
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+
+                    while (reader.Read())
+                    {
+                        ClassFuncion funcion = new ClassFuncion();
+                        funcion.id = reader.GetInt32(0);
+                        funcion.tipo = reader.GetString(1);
+                        funcion.hora_fecha = reader.GetDateTime(2);
+                        funcion.id_empleado = reader.GetInt32(3);
+                        funcion.pelicula = reader.GetInt32(4);
+                        dgvHorarios.Add(funcion);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la base de datos" + ex.ToString());
+                }
+            }
+            return dgvHorarios;
+        }
         public List<ClassCartelera> GetFunciones()
         {
             List<ClassCartelera> dgvcartelera = new List<ClassCartelera>();

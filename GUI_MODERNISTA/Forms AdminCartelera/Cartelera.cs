@@ -86,9 +86,9 @@ namespace GUI_MODERNISTA
         private void cargarDGV2()
         {
             Conexion_Consulta listaFunciones = new Conexion_Consulta();
-            //List<ClassFuncion> lista = listaFunciones.GetHorarios();
+            List<ClassFuncion> lista = listaFunciones.GetHorarios();
             dataGridView1.DataSource = null;
-           // dataGridView1.DataSource = lista;
+            dataGridView1.DataSource = lista;
         }
     }
 }
