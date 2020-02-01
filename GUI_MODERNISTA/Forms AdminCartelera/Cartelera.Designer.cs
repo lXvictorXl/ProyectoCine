@@ -29,22 +29,15 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
+            this.txtIdSala = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHorario = new System.Windows.Forms.TextBox();
-            this.btnCrearFuncion = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbTipo = new System.Windows.Forms.ComboBox();
-            this.dgvPelicula = new System.Windows.Forms.DataGridView();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnFuncion = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbFuncion = new System.Windows.Forms.ComboBox();
-            this.cmbNroSala = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.cmbIdPelicula = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPelicula)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dgvCartelera = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCartelera)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -58,55 +51,63 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "CARTELERA";
             // 
+            // txtIdSala
+            // 
+            this.txtIdSala.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdSala.Location = new System.Drawing.Point(410, 215);
+            this.txtIdSala.Name = "txtIdSala";
+            this.txtIdSala.Size = new System.Drawing.Size(54, 24);
+            this.txtIdSala.TabIndex = 1;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(37, 242);
+            this.label2.Location = new System.Drawing.Point(329, 222);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 13);
+            this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "ID PELICULA:";
+            this.label2.Text = "ID SALA:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(37, 323);
+            this.label4.Location = new System.Drawing.Point(329, 276);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 13);
+            this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 6;
-            this.label4.Text = "HORARIOS:";
+            this.label4.Text = "HORARIO:";
             // 
             // txtHorario
             // 
             this.txtHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHorario.Location = new System.Drawing.Point(120, 316);
+            this.txtHorario.Location = new System.Drawing.Point(410, 276);
             this.txtHorario.Name = "txtHorario";
             this.txtHorario.Size = new System.Drawing.Size(242, 24);
             this.txtHorario.TabIndex = 5;
             // 
-            // btnCrearFuncion
+            // btnAgregar
             // 
-            this.btnCrearFuncion.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnCrearFuncion.FlatAppearance.BorderSize = 0;
-            this.btnCrearFuncion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnCrearFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearFuncion.ForeColor = System.Drawing.Color.White;
-            this.btnCrearFuncion.Location = new System.Drawing.Point(120, 367);
-            this.btnCrearFuncion.Name = "btnCrearFuncion";
-            this.btnCrearFuncion.Size = new System.Drawing.Size(202, 35);
-            this.btnCrearFuncion.TabIndex = 7;
-            this.btnCrearFuncion.Text = "CREAR";
-            this.btnCrearFuncion.UseVisualStyleBackColor = false;
-            this.btnCrearFuncion.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.BackColor = System.Drawing.Color.SeaGreen;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(428, 346);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(202, 35);
+            this.btnAgregar.TabIndex = 7;
+            this.btnAgregar.Text = "AGREGAR";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(37, 287);
+            this.label6.Location = new System.Drawing.Point(533, 226);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 10;
@@ -115,103 +116,18 @@
             // cmbTipo
             // 
             this.cmbTipo.FormattingEnabled = true;
-            this.cmbTipo.Items.AddRange(new object[] {
-            "2D",
-            "3D"});
-            this.cmbTipo.Location = new System.Drawing.Point(120, 279);
+            this.cmbTipo.Location = new System.Drawing.Point(608, 218);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(68, 21);
             this.cmbTipo.TabIndex = 11;
             // 
-            // dgvPelicula
+            // dgvCartelera
             // 
-            this.dgvPelicula.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPelicula.Location = new System.Drawing.Point(40, 67);
-            this.dgvPelicula.Name = "dgvPelicula";
-            this.dgvPelicula.Size = new System.Drawing.Size(476, 142);
-            this.dgvPelicula.TabIndex = 12;
-            this.dgvPelicula.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPelicula_CellContentClick);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(592, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(419, 142);
-            this.dataGridView1.TabIndex = 13;
-            // 
-            // btnFuncion
-            // 
-            this.btnFuncion.BackColor = System.Drawing.Color.SeaGreen;
-            this.btnFuncion.FlatAppearance.BorderSize = 0;
-            this.btnFuncion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btnFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncion.ForeColor = System.Drawing.Color.White;
-            this.btnFuncion.Location = new System.Drawing.Point(592, 367);
-            this.btnFuncion.Name = "btnFuncion";
-            this.btnFuncion.Size = new System.Drawing.Size(202, 35);
-            this.btnFuncion.TabIndex = 14;
-            this.btnFuncion.Text = "INSERTAR";
-            this.btnFuncion.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(589, 249);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 13);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "ID FUNCION:";
-            // 
-            // cmbFuncion
-            // 
-            this.cmbFuncion.FormattingEnabled = true;
-            this.cmbFuncion.Location = new System.Drawing.Point(828, 249);
-            this.cmbFuncion.Name = "cmbFuncion";
-            this.cmbFuncion.Size = new System.Drawing.Size(68, 21);
-            this.cmbFuncion.TabIndex = 17;
-            // 
-            // cmbNroSala
-            // 
-            this.cmbNroSala.FormattingEnabled = true;
-            this.cmbNroSala.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
-            this.cmbNroSala.Location = new System.Drawing.Point(828, 301);
-            this.cmbNroSala.Name = "cmbNroSala";
-            this.cmbNroSala.Size = new System.Drawing.Size(68, 21);
-            this.cmbNroSala.TabIndex = 18;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(589, 309);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "ID SALA:";
-            // 
-            // cmbIdPelicula
-            // 
-            this.cmbIdPelicula.FormattingEnabled = true;
-            this.cmbIdPelicula.Location = new System.Drawing.Point(120, 242);
-            this.cmbIdPelicula.Name = "cmbIdPelicula";
-            this.cmbIdPelicula.Size = new System.Drawing.Size(68, 21);
-            this.cmbIdPelicula.TabIndex = 20;
-            this.cmbIdPelicula.SelectedIndexChanged += new System.EventHandler(this.cmbIdPelicula_SelectedIndexChanged);
+            this.dgvCartelera.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCartelera.Location = new System.Drawing.Point(307, 71);
+            this.dgvCartelera.Name = "dgvCartelera";
+            this.dgvCartelera.Size = new System.Drawing.Size(463, 129);
+            this.dgvCartelera.TabIndex = 12;
             // 
             // Cartelera
             // 
@@ -219,27 +135,20 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.ClientSize = new System.Drawing.Size(1080, 612);
-            this.Controls.Add(this.cmbIdPelicula);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbNroSala);
-            this.Controls.Add(this.cmbFuncion);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnFuncion);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.dgvPelicula);
+            this.Controls.Add(this.dgvCartelera);
             this.Controls.Add(this.cmbTipo);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnCrearFuncion);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtHorario);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIdSala);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Cartelera";
             this.Text = "productos";
             this.Load += new System.EventHandler(this.Cartelera_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPelicula)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCartelera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,19 +157,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdSala;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtHorario;
-        private System.Windows.Forms.Button btnCrearFuncion;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbTipo;
-        private System.Windows.Forms.DataGridView dgvPelicula;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button btnFuncion;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbFuncion;
-        private System.Windows.Forms.ComboBox cmbNroSala;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbIdPelicula;
+        private System.Windows.Forms.DataGridView dgvCartelera;
     }
 }

@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=DESKTOP-PUOPVKV;Initial Catalog=CineBD;User ID=sa;Password=selenia0904";
+        private string cadenaConexion = "Data Source=TENYASHA;Initial Catalog=CineBD;Persist Security Info=True;User ID=sa;Password=07359741";
 
         SqlConnection conexion;
 
@@ -459,6 +459,33 @@ namespace GUI_MODERNISTA
             return dgvcartelera;
         }
 
+
+        public bool insertarFuncionBD(ClassFuncion funcion)
+        {
+            bool registrado = false;
+
+            string consulta = "insert into Funcion (Tipo, Hora_Fecha, fk_Id_empleado, fk_Id_Pelicula) " +
+                "values ('" + funcion.tipo + "','" + funcion.hora_fecha.Date.ToString("yyyyMMdd hh:mm:ss") + "'," + 1 + "," + funcion.pelicula + ")";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
 
 
 
