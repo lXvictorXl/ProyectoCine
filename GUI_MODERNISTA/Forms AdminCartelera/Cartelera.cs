@@ -19,7 +19,22 @@ namespace GUI_MODERNISTA
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            Conexion_Consulta conexion_Consulta = new Conexion_Consulta();
+            ClassFuncion funcion = new ClassFuncion();
+            funcion.pelicula = Convert.ToInt32(cmbIdPelicula.Text);
+            funcion.tipo = cmbTipo.Text;
+            funcion.hora_fecha = Convert.ToDateTime(txtHorario.Text);
+            Limpiar limpiar = new Limpiar();
+            limpiar.BorrarCampos(this);
+            bool insertado = conexion_Consulta.insertarFuncionBD(funcion);
+            if (insertado)
+            {
+                MessageBox.Show("Se añadio Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Se han presentado fallos");
+            }
         }
 
         private void cargarDGV()
