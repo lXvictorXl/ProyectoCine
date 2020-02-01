@@ -250,6 +250,9 @@
             // 
             this.cmbEstadoPelicula.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cmbEstadoPelicula.FormattingEnabled = true;
+            this.cmbEstadoPelicula.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
             this.cmbEstadoPelicula.Location = new System.Drawing.Point(327, 161);
             this.cmbEstadoPelicula.Name = "cmbEstadoPelicula";
             this.cmbEstadoPelicula.Size = new System.Drawing.Size(121, 26);

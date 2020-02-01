@@ -92,7 +92,9 @@
     <Compile Include="Forms SupervisorCajero\CrearCuenta.Designer.cs">
       <DependentUpon>CrearCuenta.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms Cajero\Factura.cs" />
+    <Compile Include="Forms Cajero\Factura.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms Cajero\Factura.Designer.cs">
       <DependentUpon>Factura.cs</DependentUpon>
     </Compile>
