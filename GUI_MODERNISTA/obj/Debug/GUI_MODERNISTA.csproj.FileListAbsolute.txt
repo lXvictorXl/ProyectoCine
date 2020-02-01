@@ -66,3 +66,7 @@ C:\Users\SELENIA\source\repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\G
 C:\Users\SELENIA\source\repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.csproj.GenerateResource.cache
 C:\Users\SELENIA\source\repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.exe
 C:\Users\SELENIA\source\repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.pdb
+C:\Users\Admin\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.exe.config
+C:\Users\Admin\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.exe
+C:\Users\Admin\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\bin\Debug\GUI_MODERNISTA.pdb
+C:\Users\Admin\Source\Repos\lXvictorXl\ProyectoCine\GUI_MODERNISTA\obj\Debug\GUI_MODERNISTA.Factura.resources
