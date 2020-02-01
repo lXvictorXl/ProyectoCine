@@ -53,8 +53,10 @@
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\ClassCartelera.cs" />
+    <Compile Include="Clases\ClassFuncion.cs" />
     <Compile Include="ConexionBD y Consultas\Conexion_Consulta.cs" />
-    <Compile Include="Clases\ConsultaCajas.cs" />
+    <Compile Include="Clases\DetalleFactura.cs" />
+    <Compile Include="Clases\FacturaCliente.cs" />
     <Compile Include="Forms SupervisorCajero\DesignarCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +175,7 @@
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Clases\PromocionTicket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms SupervisorCajero\Reportes.cs">
       <SubType>Form</SubType>
@@ -181,7 +184,11 @@
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Ticket.cs" />
+<<<<<<< HEAD
     <Compile Include="Clases\Supervisor.cs" />
+=======
+    <Compile Include="Clases\Tarjeta.cs" />
+>>>>>>> dc02118e5cf882d32106a9d0f24e2314a81f54cd
     <EmbeddedResource Include="Forms AdminCartelera\Cartelera.resx">
       <DependentUpon>Cartelera.cs</DependentUpon>
     </EmbeddedResource>
