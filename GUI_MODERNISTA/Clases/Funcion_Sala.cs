@@ -13,6 +13,5 @@ namespace GUI_MODERNISTA
         public DateTime Fecha_Hora { get; set; }
         public int Nro_Sala { get; set; }
         public int Id_Funcion { get; set; }
-        public string NombrePelicula { get; set; }
     }
 }

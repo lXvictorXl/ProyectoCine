@@ -13,20 +13,9 @@ namespace GUI_MODERNISTA
 {
     public partial class Menu_Cajero : Form
     {
-        Empleado empleado = new Empleado();
-        public Menu_Cajero()
+        public Menu_Cajero(Empleado empleado)
         {
             InitializeComponent();
-        }
-        public Menu_Cajero(Empleado emp)
-        {
-            InitializeComponent();
-            empleado = emp;
-            MostrarDatos();
-        }
-        public void MostrarDatos()
-        {
-            lblUsuario.Text = empleado.nombre;
         }
         private void btnCerrar_Click(object sender, EventArgs e)
         {
@@ -107,7 +96,7 @@ namespace GUI_MODERNISTA
 
         private void btnEditarPerfil_Click_1(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Editar_Perfil(empleado));
+            AbrirFormEnPanel(new Editar_Perfil());
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
@@ -117,7 +106,7 @@ namespace GUI_MODERNISTA
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Factura(empleado));
+            AbrirFormEnPanel(new Factura());
         }
     }
 }

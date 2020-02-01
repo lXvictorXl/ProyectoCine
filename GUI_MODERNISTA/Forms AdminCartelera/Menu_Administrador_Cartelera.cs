@@ -13,22 +13,10 @@ namespace GUI_MODERNISTA
 {
     public partial class Menu_Administrador_Cartelera : Form
     {
-        Empleado empleado = new Empleado();
-        public Menu_Administrador_Cartelera()
+        public Menu_Administrador_Cartelera(Empleado empleado)
         {
             InitializeComponent();
         }
-        public Menu_Administrador_Cartelera(Empleado em)
-        {
-            InitializeComponent();
-            empleado = em;
-            MostrarDatos();
-        }
-        public void MostrarDatos()
-        {
-            lblUsuario.Text = empleado.nombre;
-        }
-      
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -112,7 +100,7 @@ namespace GUI_MODERNISTA
 
         private void btnEditarPerfil_Click_1(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Editar_Perfil(empleado));
+            AbrirFormEnPanel(new Editar_Perfil());
         }
 
         private void bntCartelera_Click(object sender, EventArgs e)
@@ -123,11 +111,6 @@ namespace GUI_MODERNISTA
         private void btnInic_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new Inicio_Administracion_Cartelera());
-        }
-
-        private void MenuVertical_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
