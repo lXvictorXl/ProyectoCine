@@ -12,7 +12,6 @@ namespace GUI_MODERNISTA
         public string nombre { get; set; }
         public string genero { get; set; }
         public DateTime fechaEstreno { get; set; }
-        public string estado { get; set; }
         public string clasificacion { get; set; }
     }
 }
