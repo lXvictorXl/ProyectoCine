@@ -72,8 +72,9 @@
             this.BarraTitulo.Controls.Add(this.btnCerrar);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
+            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1250, 38);
+            this.BarraTitulo.Size = new System.Drawing.Size(1667, 47);
             this.BarraTitulo.TabIndex = 0;
             this.BarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BarraTitulo_MouseDown);
             // 
@@ -82,9 +83,10 @@
             this.btnRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRestaurar.Image = global::GUI_MODERNISTA.Properties.Resources.btnMaximizar_Image;
-            this.btnRestaurar.Location = new System.Drawing.Point(1171, 6);
+            this.btnRestaurar.Location = new System.Drawing.Point(1561, 7);
+            this.btnRestaurar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRestaurar.Name = "btnRestaurar";
-            this.btnRestaurar.Size = new System.Drawing.Size(25, 25);
+            this.btnRestaurar.Size = new System.Drawing.Size(33, 31);
             this.btnRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnRestaurar.TabIndex = 3;
             this.btnRestaurar.TabStop = false;
@@ -96,9 +98,10 @@
             this.btnMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimizar.Image = global::GUI_MODERNISTA.Properties.Resources.btnMinimizar_Image;
-            this.btnMinimizar.Location = new System.Drawing.Point(1130, 6);
+            this.btnMinimizar.Location = new System.Drawing.Point(1507, 7);
+            this.btnMinimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMinimizar.Size = new System.Drawing.Size(33, 31);
             this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMinimizar.TabIndex = 2;
             this.btnMinimizar.TabStop = false;
@@ -108,9 +111,10 @@
             // 
             this.btnMaximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMaximizar.Location = new System.Drawing.Point(1171, 6);
+            this.btnMaximizar.Location = new System.Drawing.Point(1561, 7);
+            this.btnMaximizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnMaximizar.Name = "btnMaximizar";
-            this.btnMaximizar.Size = new System.Drawing.Size(25, 25);
+            this.btnMaximizar.Size = new System.Drawing.Size(33, 31);
             this.btnMaximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnMaximizar.TabIndex = 1;
             this.btnMaximizar.TabStop = false;
@@ -121,9 +125,10 @@
             this.btnCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCerrar.Image = global::GUI_MODERNISTA.Properties.Resources.btnCerrar_Image;
-            this.btnCerrar.Location = new System.Drawing.Point(1212, 6);
+            this.btnCerrar.Location = new System.Drawing.Point(1616, 7);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(25, 25);
+            this.btnCerrar.Size = new System.Drawing.Size(33, 31);
             this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.TabStop = false;
@@ -139,10 +144,12 @@
             this.MenuVertical.Controls.Add(this.btnsalir);
             this.MenuVertical.Controls.Add(this.btninicio);
             this.MenuVertical.Dock = System.Windows.Forms.DockStyle.Left;
-            this.MenuVertical.Location = new System.Drawing.Point(0, 38);
+            this.MenuVertical.Location = new System.Drawing.Point(0, 47);
+            this.MenuVertical.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MenuVertical.Name = "MenuVertical";
-            this.MenuVertical.Size = new System.Drawing.Size(220, 612);
+            this.MenuVertical.Size = new System.Drawing.Size(293, 753);
             this.MenuVertical.TabIndex = 1;
+            this.MenuVertical.Paint += new System.Windows.Forms.PaintEventHandler(this.MenuVertical_Paint);
             // 
             // pnlMenuCajero
             // 
@@ -156,10 +163,10 @@
             this.pnlMenuCajero.Controls.Add(this.panel2);
             this.pnlMenuCajero.Controls.Add(this.btnFunciones);
             this.pnlMenuCajero.Controls.Add(this.panel3);
-            this.pnlMenuCajero.Location = new System.Drawing.Point(0, 256);
-            this.pnlMenuCajero.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlMenuCajero.Location = new System.Drawing.Point(0, 315);
+            this.pnlMenuCajero.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlMenuCajero.Name = "pnlMenuCajero";
-            this.pnlMenuCajero.Size = new System.Drawing.Size(220, 266);
+            this.pnlMenuCajero.Size = new System.Drawing.Size(293, 327);
             this.pnlMenuCajero.TabIndex = 22;
             // 
             // bntCartelera
@@ -172,9 +179,10 @@
             this.bntCartelera.ForeColor = System.Drawing.Color.White;
             this.bntCartelera.Image = global::GUI_MODERNISTA.Properties.Resources.image;
             this.bntCartelera.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bntCartelera.Location = new System.Drawing.Point(3, 111);
+            this.bntCartelera.Location = new System.Drawing.Point(4, 137);
+            this.bntCartelera.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bntCartelera.Name = "bntCartelera";
-            this.bntCartelera.Size = new System.Drawing.Size(217, 37);
+            this.bntCartelera.Size = new System.Drawing.Size(289, 46);
             this.bntCartelera.TabIndex = 12;
             this.bntCartelera.Text = "Cartelera";
             this.bntCartelera.UseVisualStyleBackColor = false;
@@ -183,17 +191,19 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel4.Location = new System.Drawing.Point(0, 111);
+            this.panel4.Location = new System.Drawing.Point(0, 137);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(5, 37);
+            this.panel4.Size = new System.Drawing.Size(7, 46);
             this.panel4.TabIndex = 13;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel1.Location = new System.Drawing.Point(0, 11);
+            this.panel1.Location = new System.Drawing.Point(0, 14);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(5, 33);
+            this.panel1.Size = new System.Drawing.Size(7, 41);
             this.panel1.TabIndex = 2;
             // 
             // btnInic
@@ -207,9 +217,10 @@
             this.btnInic.ForeColor = System.Drawing.Color.White;
             this.btnInic.Image = global::GUI_MODERNISTA.Properties.Resources.inicio;
             this.btnInic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInic.Location = new System.Drawing.Point(3, 11);
+            this.btnInic.Location = new System.Drawing.Point(4, 14);
+            this.btnInic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInic.Name = "btnInic";
-            this.btnInic.Size = new System.Drawing.Size(217, 33);
+            this.btnInic.Size = new System.Drawing.Size(289, 41);
             this.btnInic.TabIndex = 1;
             this.btnInic.Text = "Inicio";
             this.btnInic.UseVisualStyleBackColor = false;
@@ -218,9 +229,10 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel5.Location = new System.Drawing.Point(0, 155);
+            this.panel5.Location = new System.Drawing.Point(0, 191);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(5, 33);
+            this.panel5.Size = new System.Drawing.Size(7, 41);
             this.panel5.TabIndex = 10;
             // 
             // btnEditarPerfil
@@ -233,9 +245,10 @@
             this.btnEditarPerfil.ForeColor = System.Drawing.Color.White;
             this.btnEditarPerfil.Image = global::GUI_MODERNISTA.Properties.Resources.image;
             this.btnEditarPerfil.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarPerfil.Location = new System.Drawing.Point(3, 63);
+            this.btnEditarPerfil.Location = new System.Drawing.Point(4, 78);
+            this.btnEditarPerfil.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditarPerfil.Name = "btnEditarPerfil";
-            this.btnEditarPerfil.Size = new System.Drawing.Size(217, 37);
+            this.btnEditarPerfil.Size = new System.Drawing.Size(289, 46);
             this.btnEditarPerfil.TabIndex = 3;
             this.btnEditarPerfil.Text = "Editar Perfil";
             this.btnEditarPerfil.UseVisualStyleBackColor = false;
@@ -251,9 +264,10 @@
             this.btnInsercionPeliculas.ForeColor = System.Drawing.Color.White;
             this.btnInsercionPeliculas.Image = global::GUI_MODERNISTA.Properties.Resources.Seleccionar_Pelicula;
             this.btnInsercionPeliculas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInsercionPeliculas.Location = new System.Drawing.Point(10, 205);
+            this.btnInsercionPeliculas.Location = new System.Drawing.Point(13, 252);
+            this.btnInsercionPeliculas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnInsercionPeliculas.Name = "btnInsercionPeliculas";
-            this.btnInsercionPeliculas.Size = new System.Drawing.Size(210, 32);
+            this.btnInsercionPeliculas.Size = new System.Drawing.Size(280, 39);
             this.btnInsercionPeliculas.TabIndex = 11;
             this.btnInsercionPeliculas.Text = "Insercion Peliculas";
             this.btnInsercionPeliculas.UseVisualStyleBackColor = false;
@@ -262,9 +276,10 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel2.Location = new System.Drawing.Point(3, 205);
+            this.panel2.Location = new System.Drawing.Point(4, 252);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(5, 32);
+            this.panel2.Size = new System.Drawing.Size(7, 39);
             this.panel2.TabIndex = 4;
             // 
             // btnFunciones
@@ -277,9 +292,10 @@
             this.btnFunciones.ForeColor = System.Drawing.Color.White;
             this.btnFunciones.Image = global::GUI_MODERNISTA.Properties.Resources.Salas_reducido;
             this.btnFunciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFunciones.Location = new System.Drawing.Point(3, 158);
+            this.btnFunciones.Location = new System.Drawing.Point(4, 194);
+            this.btnFunciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFunciones.Name = "btnFunciones";
-            this.btnFunciones.Size = new System.Drawing.Size(217, 31);
+            this.btnFunciones.Size = new System.Drawing.Size(289, 38);
             this.btnFunciones.TabIndex = 9;
             this.btnFunciones.Text = "Funciones";
             this.btnFunciones.UseVisualStyleBackColor = false;
@@ -288,9 +304,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(200)))));
-            this.panel3.Location = new System.Drawing.Point(0, 63);
+            this.panel3.Location = new System.Drawing.Point(0, 78);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(5, 37);
+            this.panel3.Size = new System.Drawing.Size(7, 46);
             this.panel3.TabIndex = 6;
             // 
             // lblUsuario
@@ -298,10 +315,9 @@
             this.lblUsuario.AutoSize = true;
             this.lblUsuario.Font = new System.Drawing.Font("Century", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsuario.ForeColor = System.Drawing.Color.White;
-            this.lblUsuario.Location = new System.Drawing.Point(80, 207);
-            this.lblUsuario.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsuario.Location = new System.Drawing.Point(107, 255);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(50, 18);
+            this.lblUsuario.Size = new System.Drawing.Size(65, 23);
             this.lblUsuario.TabIndex = 21;
             this.lblUsuario.Text = "label2";
             // 
@@ -310,20 +326,19 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(11, 207);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(15, 255);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 20);
+            this.label1.Size = new System.Drawing.Size(89, 23);
             this.label1.TabIndex = 20;
             this.label1.Text = "Usuario:";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::GUI_MODERNISTA.Properties.Resources.usuario_registrados;
-            this.pictureBox1.Location = new System.Drawing.Point(59, 116);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(79, 143);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(112, 89);
+            this.pictureBox1.Size = new System.Drawing.Size(149, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
@@ -332,9 +347,10 @@
             // 
             this.btnsalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsalir.Image = global::GUI_MODERNISTA.Properties.Resources.apagar;
-            this.btnsalir.Location = new System.Drawing.Point(3, 557);
+            this.btnsalir.Location = new System.Drawing.Point(4, 686);
+            this.btnsalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnsalir.Name = "btnsalir";
-            this.btnsalir.Size = new System.Drawing.Size(32, 51);
+            this.btnsalir.Size = new System.Drawing.Size(43, 63);
             this.btnsalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnsalir.TabIndex = 16;
             this.btnsalir.TabStop = false;
@@ -345,8 +361,9 @@
             this.btninicio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btninicio.Image = global::GUI_MODERNISTA.Properties.Resources.Logo_Cine_y_Multimedia_w;
             this.btninicio.Location = new System.Drawing.Point(0, 0);
+            this.btninicio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btninicio.Name = "btninicio";
-            this.btninicio.Size = new System.Drawing.Size(220, 102);
+            this.btninicio.Size = new System.Drawing.Size(293, 126);
             this.btninicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btninicio.TabIndex = 0;
             this.btninicio.TabStop = false;
@@ -356,21 +373,23 @@
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(220, 38);
+            this.panelContenedor.Location = new System.Drawing.Point(293, 47);
+            this.panelContenedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1030, 612);
+            this.panelContenedor.Size = new System.Drawing.Size(1374, 753);
             this.panelContenedor.TabIndex = 2;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // Menu_Administrador_Cartelera
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 650);
+            this.ClientSize = new System.Drawing.Size(1667, 800);
             this.Controls.Add(this.panelContenedor);
             this.Controls.Add(this.MenuVertical);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Menu_Administrador_Cartelera";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

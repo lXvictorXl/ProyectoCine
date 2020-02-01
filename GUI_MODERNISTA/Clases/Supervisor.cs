@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace GUI_MODERNISTA
 {
-    class ClassCartelera
+    class Supervisor
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public string genero { get; set; }
-        public DateTime fechaEstreno { get; set; }
-        public string clasificacion { get; set; }
+        public string apPaterno { get; set; }
+        public string apMaterno { get; set; }
+
     }
 }
