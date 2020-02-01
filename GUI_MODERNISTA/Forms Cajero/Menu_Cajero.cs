@@ -117,7 +117,7 @@ namespace GUI_MODERNISTA
 
         private void btnVentas_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Factura());
+            AbrirFormEnPanel(new Factura(empleado));
         }
     }
 }

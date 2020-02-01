@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=DESKTOP-PUOPVKV;Initial Catalog=CineBD;User ID=sa;Password=selenia0904";
+        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;User ID=sa;Password=1234";
 
         SqlConnection conexion;
 
@@ -246,16 +246,15 @@ namespace GUI_MODERNISTA
         {
             int idFactura = 0;
 
-            string consulta = "DECLARE @UltimoID INT " +
+            string consulta = 
                 "insert into Factura (Fecha_Emision,Total,fk_Id_Tipo_Pago,fk_Id_Empleado,fk_Nit_Ci_Cliente) " +
-                "SELECT "+factura.FechaEmision+","+factura.Total+","+factura.fkIdTipoPago+","+factura.fkIdEmpleado+ ","+factura.fkNitCiCliente+" " +
-                "SELECT @UltimoID = SCOPE_IDENTITY()";
+                "values ('"+factura.FechaEmision.ToString("yyyyMMdd hh:mm:ss")+"',"+Convert.ToDouble(factura.Total)+","+factura.fkIdTipoPago+","+factura.fkIdEmpleado+ ","+factura.fkNitCiCliente+")";
 
 
             using (conexion = new SqlConnection(cadenaConexion))
             {
                 SqlCommand command = new SqlCommand(consulta, conexion);
-                command.Parameters.AddWithValue("@UltimoID", idFactura);
+               
                 try
                 {
                     conexion.Open();
@@ -269,6 +268,21 @@ namespace GUI_MODERNISTA
                     throw new Exception("Hay un error en la bd " + ex.Message);
                 }
             }
+
+            consulta = "select nro from factura";
+
+            conexion = new SqlConnection(cadenaConexion);
+            SqlCommand comando = new SqlCommand(consulta, conexion);
+            conexion.Open();
+            SqlDataReader reader = comando.ExecuteReader();
+
+
+            while (reader.Read())
+            {
+                idFactura = reader.GetInt32(0);
+            }
+            reader.Close();
+            conexion.Close();
             return idFactura;
         }
 
@@ -437,7 +451,32 @@ namespace GUI_MODERNISTA
             }
             return dgvcartelera;
         }
+        public bool insertarFuncionBD(ClassFuncion funcion)
+        {
+            bool registrado = false;
 
+            string consulta = "insert into Funcion (Tipo, Hora_Fecha, fk_Id_empleado, fk_Id_Pelicula) " +
+                "values ('" + funcion.tipo + "','" + funcion.hora_fecha.Date.ToString("yyyyMMdd hh:mm:ss") + "'," + funcion.id_empleado + "," + funcion.pelicula + ")";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
 
 
 
@@ -723,5 +762,6 @@ namespace GUI_MODERNISTA
             }
             return cliente;
         }
+       
     }
 }
