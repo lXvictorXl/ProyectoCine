@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=DESKTOP-IJ12V44;Initial Catalog=CineBD;Integrated Security=True";
+        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;User ID=sa;Password=1234";
 
         SqlConnection conexion;
 
@@ -285,6 +285,127 @@ namespace GUI_MODERNISTA
             conexion.Close();
             return idFactura;
         }
+
+        //Insertar Detalles de la factura a la BD
+        public ArrayList insertarDetalles(ArrayList listasDetalles, int nroFactura)
+        {
+            ArrayList listIDsDetalles = new ArrayList();
+            string consulta = "";
+
+            foreach (DetalleFactura detalle in listasDetalles)
+            {
+                consulta = "insert into detalle(cantidad_tickets,subtotal,fk_Nro_Factura) " +
+                    "values(" + detalle.CantidadTickets + "," + Convert.ToDouble(detalle.SubTotal) + "," + nroFactura + ")";
+
+                using (conexion = new SqlConnection(cadenaConexion))
+                {
+                    SqlCommand command = new SqlCommand(consulta, conexion);
+
+                    try
+                    {
+                        conexion.Open();
+                        command.ExecuteNonQuery();
+
+                        conexion.Close();
+
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Hay un error en la bd " + ex.Message);
+                    }
+                }
+
+            }
+
+            consulta = "select id from detalle where fk_nro_Factura=" + nroFactura + "";
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        listIDsDetalles.Add(reader.GetInt32(0));
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return listIDsDetalles;
+        }
+
+        //Insertar Tickets Vendidos
+        public bool insertarTickets(ArrayList listatickets)
+        {
+            bool registrado = false;
+
+            foreach (Ticket ticket in listatickets)
+            {
+                string consulta = "insert into ticket(fecha,precio_final,fk_id_costo,fk_id_funcion_sala,fk_id_detalle,fk_id_promocion,fk_nro_butaca)" +
+             " values('" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + Convert.ToDouble(ticket.PrecioFinal) + "," + ticket.fkIdCosto + "," + ticket.fkFuncionSala + "," + ticket.IdDetalle + "," + ticket.fkIdPromocion + "," + ticket.NroButaca + ")";
+
+                if (ticket.fkIdPromocion == 0)
+                    consulta = "insert into ticket(fecha,precio_final,fk_id_costo,fk_id_funcion_sala,fk_id_detalle,fk_id_promocion,fk_nro_butaca)" +
+                          " values('" + DateTime.Now.ToString("yyyy-MM-dd") + "'," + Convert.ToDouble(ticket.PrecioFinal) + "," + ticket.fkIdCosto + "," + ticket.fkFuncionSala + "," + ticket.IdDetalle + "," + System.Data.SqlTypes.SqlInt32.Null + "," + ticket.NroButaca + ")";
+
+                using (conexion = new SqlConnection(cadenaConexion))
+                {
+                    SqlCommand command = new SqlCommand(consulta, conexion);
+
+                    try
+                    {
+                        conexion.Open();
+                        command.ExecuteNonQuery();
+                        registrado = true;
+                        conexion.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Hay un error en la bd " + ex.Message);
+                    }
+                }
+            }
+
+            return registrado;
+        }
+
+        //Insertar Cliente
+        public bool insertarCliente(Cliente cliente)
+        {
+            bool registrado = false;
+
+            string consulta = "insert into cliente(nit_ci,nombre,apellido,celular) " +
+                "values('" + cliente.ciNit + "','" + cliente.nombre + "','" + cliente.apellido + "'," + cliente.cel + ")";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+
+            return registrado;
+        }
+
+
 
         /////////FUNCIONES PARA ADMINISTRADOR DE CARTELERA
         ///

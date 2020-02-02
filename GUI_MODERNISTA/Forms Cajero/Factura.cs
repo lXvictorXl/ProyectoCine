@@ -447,14 +447,14 @@ namespace GUI_MODERNISTA
             }
             errorProvider1.SetError(txtApellido, "");
             Int64 celular;
-            if (!Int64.TryParse(txtCelular.Text,out celular))
+            if (!Int64.TryParse(txtCelular.Text, out celular))
             {
                 errorProvider1.SetError(txtCelular, "Debe ingresar un Número de Celular");
                 txtCelular.Focus();
                 return;
             }
             errorProvider1.SetError(txtCelular, "");
-            if (celular<60000000 && celular>79999999)
+            if (Convert.ToInt64(txtCelular.Text)<60000000 && Convert.ToInt64(txtCelular.Text)>79999999)
             {
                 errorProvider1.SetError(txtCelular, "Debe ingresar un Celular Válido");
                 txtCelular.Focus();
