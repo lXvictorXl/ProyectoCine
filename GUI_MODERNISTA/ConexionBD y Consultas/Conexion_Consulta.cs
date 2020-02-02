@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;User ID=sa;Password=1234";
+        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;User ID=sa;Password=07359741";
 
         SqlConnection conexion;
 
@@ -635,6 +635,72 @@ namespace GUI_MODERNISTA
             }
             return registrado;
         }
+
+        public List<ClassFuncionSala> GetSalas()
+        {
+            List<ClassFuncionSala> dgvSalas = new List<ClassFuncionSala>();
+
+            string consulta = " Select fk_Id_Funcion,fk_Nro_Sala " +
+                " From Funcion_Sala ";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+
+                    while (reader.Read())
+                    {
+                        ClassFuncionSala funcionSala = new ClassFuncionSala();
+                        funcionSala.Id_Funcion = reader.GetInt32(0);
+                        funcionSala.Nro_Sala = reader.GetInt32(1);
+                        dgvSalas.Add(funcionSala);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la base de datos" + ex.ToString());
+                }
+
+            }
+            return dgvSalas;
+
+        }
+
+        public bool insertarSalaBD(ClassFuncionSala funcionSala)
+        {
+            bool registrado = false;
+
+            string consulta = " Insert into Funcion_Sala (fk_Id_Funcion, fk_Nro_Sala) " +
+                " values(" + funcionSala.Id_Funcion + " , " + funcionSala.Nro_Sala + ")";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
+
+
 
 
 

@@ -43,8 +43,10 @@
             this.cmbNroSala = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbIdPelicula = new System.Windows.Forms.ComboBox();
+            this.dgvSalas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPelicula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSalas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,10 +54,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(1213, 60);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Location = new System.Drawing.Point(455, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(351, 63);
+            this.label1.Size = new System.Drawing.Size(144, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "CARTELERA";
             // 
@@ -63,10 +64,9 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(99, 577);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Location = new System.Drawing.Point(37, 242);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(193, 32);
+            this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "ID PELICULA:";
             // 
@@ -74,20 +74,18 @@
             // 
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(99, 770);
-            this.label4.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label4.Location = new System.Drawing.Point(37, 323);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(172, 32);
+            this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "HORARIOS:";
             // 
             // txtHorario
             // 
             this.txtHorario.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHorario.Location = new System.Drawing.Point(320, 754);
-            this.txtHorario.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.txtHorario.Location = new System.Drawing.Point(120, 316);
             this.txtHorario.Name = "txtHorario";
-            this.txtHorario.Size = new System.Drawing.Size(639, 49);
+            this.txtHorario.Size = new System.Drawing.Size(242, 24);
             this.txtHorario.TabIndex = 5;
             // 
             // btnCrearFuncion
@@ -98,10 +96,9 @@
             this.btnCrearFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCrearFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearFuncion.ForeColor = System.Drawing.Color.White;
-            this.btnCrearFuncion.Location = new System.Drawing.Point(320, 875);
-            this.btnCrearFuncion.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnCrearFuncion.Location = new System.Drawing.Point(120, 367);
             this.btnCrearFuncion.Name = "btnCrearFuncion";
-            this.btnCrearFuncion.Size = new System.Drawing.Size(539, 83);
+            this.btnCrearFuncion.Size = new System.Drawing.Size(202, 35);
             this.btnCrearFuncion.TabIndex = 7;
             this.btnCrearFuncion.Text = "CREAR";
             this.btnCrearFuncion.UseVisualStyleBackColor = false;
@@ -111,10 +108,9 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(99, 684);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Location = new System.Drawing.Point(37, 287);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 32);
+            this.label6.Size = new System.Drawing.Size(35, 13);
             this.label6.TabIndex = 10;
             this.label6.Text = "TIPO:";
             // 
@@ -124,29 +120,26 @@
             this.cmbTipo.Items.AddRange(new object[] {
             "2D",
             "3D"});
-            this.cmbTipo.Location = new System.Drawing.Point(320, 665);
-            this.cmbTipo.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cmbTipo.Location = new System.Drawing.Point(120, 279);
             this.cmbTipo.Name = "cmbTipo";
-            this.cmbTipo.Size = new System.Drawing.Size(175, 39);
+            this.cmbTipo.Size = new System.Drawing.Size(68, 21);
             this.cmbTipo.TabIndex = 11;
             // 
             // dgvPelicula
             // 
             this.dgvPelicula.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPelicula.Location = new System.Drawing.Point(107, 160);
-            this.dgvPelicula.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dgvPelicula.Location = new System.Drawing.Point(40, 67);
             this.dgvPelicula.Name = "dgvPelicula";
-            this.dgvPelicula.Size = new System.Drawing.Size(1269, 339);
+            this.dgvPelicula.Size = new System.Drawing.Size(476, 142);
             this.dgvPelicula.TabIndex = 12;
             this.dgvPelicula.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPelicula_CellContentClick);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(1579, 160);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.dataGridView1.Location = new System.Drawing.Point(592, 67);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1117, 339);
+            this.dataGridView1.Size = new System.Drawing.Size(419, 142);
             this.dataGridView1.TabIndex = 13;
             // 
             // btnFuncion
@@ -157,10 +150,9 @@
             this.btnFuncion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFuncion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFuncion.ForeColor = System.Drawing.Color.White;
-            this.btnFuncion.Location = new System.Drawing.Point(1579, 875);
-            this.btnFuncion.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.btnFuncion.Location = new System.Drawing.Point(694, 367);
             this.btnFuncion.Name = "btnFuncion";
-            this.btnFuncion.Size = new System.Drawing.Size(539, 83);
+            this.btnFuncion.Size = new System.Drawing.Size(202, 35);
             this.btnFuncion.TabIndex = 14;
             this.btnFuncion.Text = "INSERTAR";
             this.btnFuncion.UseVisualStyleBackColor = false;
@@ -170,20 +162,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(1571, 594);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Location = new System.Drawing.Point(589, 249);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 32);
+            this.label3.Size = new System.Drawing.Size(72, 13);
             this.label3.TabIndex = 16;
             this.label3.Text = "ID FUNCION:";
             // 
             // cmbFuncion
             // 
             this.cmbFuncion.FormattingEnabled = true;
-            this.cmbFuncion.Location = new System.Drawing.Point(2208, 594);
-            this.cmbFuncion.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cmbFuncion.Location = new System.Drawing.Point(828, 249);
             this.cmbFuncion.Name = "cmbFuncion";
-            this.cmbFuncion.Size = new System.Drawing.Size(175, 39);
+            this.cmbFuncion.Size = new System.Drawing.Size(68, 21);
             this.cmbFuncion.TabIndex = 17;
             // 
             // cmbNroSala
@@ -202,39 +192,45 @@
             "10",
             "11",
             "12"});
-            this.cmbNroSala.Location = new System.Drawing.Point(2208, 718);
-            this.cmbNroSala.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cmbNroSala.Location = new System.Drawing.Point(828, 301);
             this.cmbNroSala.Name = "cmbNroSala";
-            this.cmbNroSala.Size = new System.Drawing.Size(175, 39);
+            this.cmbNroSala.Size = new System.Drawing.Size(68, 21);
             this.cmbNroSala.TabIndex = 18;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(1571, 737);
-            this.label5.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label5.Location = new System.Drawing.Point(589, 309);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 32);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 19;
             this.label5.Text = "ID SALA:";
             // 
             // cmbIdPelicula
             // 
             this.cmbIdPelicula.FormattingEnabled = true;
-            this.cmbIdPelicula.Location = new System.Drawing.Point(320, 577);
-            this.cmbIdPelicula.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.cmbIdPelicula.Location = new System.Drawing.Point(120, 242);
             this.cmbIdPelicula.Name = "cmbIdPelicula";
-            this.cmbIdPelicula.Size = new System.Drawing.Size(175, 39);
+            this.cmbIdPelicula.Size = new System.Drawing.Size(68, 21);
             this.cmbIdPelicula.TabIndex = 20;
             this.cmbIdPelicula.SelectedIndexChanged += new System.EventHandler(this.cmbIdPelicula_SelectedIndexChanged);
             // 
+            // dgvSalas
+            // 
+            this.dgvSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSalas.Location = new System.Drawing.Point(332, 442);
+            this.dgvSalas.Name = "dgvSalas";
+            this.dgvSalas.Size = new System.Drawing.Size(434, 150);
+            this.dgvSalas.TabIndex = 21;
+            // 
             // Cartelera
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(66)))), ((int)(((byte)(82)))));
-            this.ClientSize = new System.Drawing.Size(2880, 1459);
+            this.ClientSize = new System.Drawing.Size(1050, 690);
+            this.Controls.Add(this.dgvSalas);
             this.Controls.Add(this.cmbIdPelicula);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cmbNroSala);
@@ -251,12 +247,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "Cartelera";
             this.Text = "productos";
             this.Load += new System.EventHandler(this.Cartelera_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPelicula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSalas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,5 +275,6 @@
         private System.Windows.Forms.ComboBox cmbNroSala;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbIdPelicula;
+        private System.Windows.Forms.DataGridView dgvSalas;
     }
 }

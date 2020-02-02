@@ -54,6 +54,7 @@
     <Compile Include="Clases\Empleado.cs" />
     <Compile Include="Clases\ClassCartelera.cs" />
     <Compile Include="Clases\ClassFuncion.cs" />
+    <Compile Include="Clases\ClassFuncionSala.cs" />
     <Compile Include="ConexionBD y Consultas\Conexion_Consulta.cs" />
     <Compile Include="Clases\DetalleFactura.cs" />
     <Compile Include="Clases\FacturaCliente.cs" />

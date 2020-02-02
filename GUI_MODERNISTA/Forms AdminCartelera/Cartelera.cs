@@ -57,10 +57,28 @@ namespace GUI_MODERNISTA
                 }
         }
 
+        private void cargarDGV2()
+        {
+            Conexion_Consulta listaFunciones = new Conexion_Consulta();
+            List<ClassFuncion> lista = listaFunciones.GetHorarios();
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = lista;
+        }
+
+
+        private void cargarDGV3()
+        {
+            Conexion_Consulta listaSalas = new Conexion_Consulta();
+            List<ClassFuncionSala> lista = listaSalas.GetSalas();
+            dgvSalas.DataSource = null;
+            dgvSalas.DataSource = lista;
+        }
+
         private void Cartelera_Load(object sender, EventArgs e)
         {
             cargarDGV();
             cargarDGV2();
+            cargarDGV3();
         }
 
      
@@ -81,14 +99,22 @@ namespace GUI_MODERNISTA
 
         private void btnFuncion_Click(object sender, EventArgs e)
         {
+            Conexion_Consulta conexion_Consulta = new Conexion_Consulta();
+            ClassFuncionSala funcionSala = new ClassFuncionSala();
+            funcionSala.Id_Funcion = Convert.ToInt32(cmbFuncion.Text);
+            funcionSala.Nro_Sala =Convert.ToInt32(cmbNroSala.Text);
+            Limpiar limpiar = new Limpiar();
 
-        }
-        private void cargarDGV2()
-        {
-            Conexion_Consulta listaFunciones = new Conexion_Consulta();
-            List<ClassFuncion> lista = listaFunciones.GetHorarios();
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = lista;
+            bool insertado = conexion_Consulta.insertarSalaBD(funcionSala);
+            limpiar.BorrarCampos(this);
+            if (insertado)
+            {
+                MessageBox.Show("Se añadio Correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Se han presentado fallos");
+            }
         }
     }
 }
