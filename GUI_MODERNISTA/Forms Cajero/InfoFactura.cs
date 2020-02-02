@@ -16,5 +16,10 @@ namespace GUI_MODERNISTA
         {
             InitializeComponent();
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

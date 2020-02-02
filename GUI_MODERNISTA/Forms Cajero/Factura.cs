@@ -28,6 +28,7 @@ namespace GUI_MODERNISTA
 
         ArrayList listaPelis = new ArrayList();
         ArrayList listaFuncionesSala = new ArrayList();
+        ArrayList listaDeatalles=new ArrayList();
         ArrayList listaButacasSeleccionadas = new ArrayList();
         ///Cada vez que se cambia la fecha se carga al comboBox las peliculas que se exhibiran en la fecha que se cambió 
         private void dtpCartelera_ValueChanged(object sender, EventArgs e)
@@ -72,7 +73,7 @@ namespace GUI_MODERNISTA
             listaFuncionesSala = consulta.Buscar_Funciones_Para_Una_Peli(idPeli, dtpCartelera.Value.ToString("yyyy-MM-dd"));
             bool cambioTipoFuncion = false;
             bool tipoFuncionCambiado = false;///////////////////////////
-            int posicionX = 213, posicionY = 291, saltarFila = 2;//////////////////////////////////
+            int posicionX = 240, posicionY = 291, saltarFila = 2;//////////////////////////////////
             Funcion_Sala funcionSala = new Funcion_Sala();
             funcionSala = (Funcion_Sala)listaFuncionesSala[0];
             string tipoFuncion = funcionSala.Tipo;
@@ -93,11 +94,11 @@ namespace GUI_MODERNISTA
                     lblTipoFuncion2.Visible = true;
                     cambioTipoFuncion = true;
                     tipoFuncionCambiado = true;
-                    posicionY += 30;
-                    posicionX = 213;
+                    posicionY += 40;
+                    posicionX = 240;
                     lblTipoFuncion2.Location = new Point(posicionX, posicionY);
                     posicionY += 32;
-                    posicionX = 213;
+                    posicionX = 240;
                     saltarFila = i + 3;
                 }
 
@@ -108,7 +109,7 @@ namespace GUI_MODERNISTA
                 {
                     saltarFila += 3;
                     posicionY += 25;
-                    posicionX = 213;
+                    posicionX = 240;
                 }
 
                 tipoFuncion = funcionSala.Tipo;//para actualizar el tipo de funcion
@@ -251,7 +252,7 @@ namespace GUI_MODERNISTA
         //Proceso que crea Dettalles de la Factura
         private void crearListaDetalles()
         {
-            ArrayList listaDeatalles = new ArrayList();
+            listaDeatalles = new ArrayList();
             DetalleFactura detalle=new DetalleFactura();
             Ticket ticket = new Ticket();
             Ticket ticketSiguiente = new Ticket();
@@ -302,23 +303,13 @@ namespace GUI_MODERNISTA
             dgvInfoVenta.DataSource = listaDeatalles;
         }
 
-        //Proceso que crea la Factura
-        private void crearFactura()
-        {
-            
-            FacturaCliente factura = new FacturaCliente();
-
-            
-        }
-
+       
         //LLenar comboBox de Tarjetas
         private ArrayList llenarComboTarjetas(ArrayList listaTarjetas)
         {
             Conexion_Consulta consultaTarjetasCliente = new Conexion_Consulta();
             listaTarjetas = new ArrayList();
             listaTarjetas = consultaTarjetasCliente.ConsultaTarjetaCliente(txtCi.Text);
-
-           
             return listaTarjetas;
         }
 
@@ -336,28 +327,27 @@ namespace GUI_MODERNISTA
             
             
         }
-
-        
         private void picCartelera_Click(object sender, EventArgs e)
         {
 
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
+
+
         private void rbEfectivo_CheckedChanged(object sender, EventArgs e)
         {
             if (rbEfectivo.Checked)
             {
-                panel2.Visible = false;
+                panel2.Enabled = false;
             }
         }
 
-        //Proceso para hacer el descuento en el ticket si hay promocion
 
+        //Proceso para hacer el descuento en el ticket si hay promocion
         private void realizarDescuento(string dia)
         {
             PromocionTicket promocion = promocionTicket(dia);
@@ -401,7 +391,7 @@ namespace GUI_MODERNISTA
             {
                 ArrayList lista=new ArrayList();
                 lista=llenarComboTarjetas(lista);
-                panel2.Visible = true;
+                panel2.Enabled = true;
                 foreach (Tarjeta tarjeta in lista)
                 {
                     cmbTarjeta.Items.Add(tarjeta.Nombre);
@@ -435,7 +425,67 @@ namespace GUI_MODERNISTA
 
         private void button74_Click(object sender, EventArgs e)
         {
-            FacturaCliente factura = new FacturaCliente();
+            if (txtCi.Text=="")
+            {
+                errorProvider1.SetError(txtCi,"Debe ingresar un CI");
+                txtCi.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtCi,"");
+            if (txtNombre.Text == "")
+            {
+                errorProvider1.SetError(txtNombre, "Debe ingresar un Nombre");
+                txtNombre.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtNombre, "");
+            if (txtApellido.Text == "")
+            {
+                errorProvider1.SetError(txtApellido, "Debe ingresar un Apellido");
+                txtApellido.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtApellido, "");
+            Int64 celular;
+            if (!Int64.TryParse(txtCelular.Text,out celular))
+            {
+                errorProvider1.SetError(txtCelular, "Debe ingresar un Número de Celular");
+                txtCelular.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtCelular, "");
+            if (celular<60000000 && celular>79999999)
+            {
+                errorProvider1.SetError(txtCelular, "Debe ingresar un Celular Válido");
+                txtCelular.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtCelular, "");
+
+            if ( listaButacasSeleccionadas.Count==0)
+            {
+                MessageBox.Show("!!!DEBE SELECCIONAR BUTACAS!!!");
+                return;
+            }
+            else
+            {
+                Cliente cliente = new Cliente();
+                Conexion_Consulta consulta = new Conexion_Consulta();
+                cliente = consulta.infoCliente(txtCi.Text);
+                bool clienteRegistrado = false;
+
+                if (cliente.ciNit==null)
+                {
+                    cliente = new Cliente();
+                    cliente.ciNit = txtCi.Text;
+                    cliente.nombre = txtNombre.Text;
+                    cliente.apellido=txtApellido.Text;
+                    cliente.cel =Convert.ToInt32(txtCelular.Text);
+                    clienteRegistrado = consulta.insertarCliente(cliente);
+                }
+                
+
+                FacturaCliente factura = new FacturaCliente();
             if (rbEfectivo.Checked)
             {
                 realizarDescuento("2x1");
@@ -457,8 +507,61 @@ namespace GUI_MODERNISTA
 
             Conexion_Consulta conexion_Consulta = new Conexion_Consulta();
 
-            int idFactura=conexion_Consulta.insertarFactura(factura);
+            int nroFactura=conexion_Consulta.insertarFactura(factura);
 
+            ArrayList listaIdsDetalles = conexion_Consulta.insertarDetalles(listaDeatalles, nroFactura);
+            asignarDetalleAtickets(listaIdsDetalles);
+
+            bool ventaConcretada = conexion_Consulta.insertarTickets(listaButacasSeleccionadas);
+            if (ventaConcretada)
+            {
+                if(!clienteRegistrado)
+                        MessageBox.Show("¡¡¡Venta Concreta!!!\nImprimiendo Factura y Tickets...");
+                else
+                    MessageBox.Show("Cliente Registrado a la Base de Datos!!!\n¡¡¡Venta Concreta!!!\nImprimiendo Factura y Tickets...");
+                dgvInfoVenta.DataSource = new DataGridView();
+                    
+                listaDeatalles.Clear();
+                listaButacasSeleccionadas.Clear();
+                lblPrecioTotal.Text = "0.00";
+               
+                txtCi.Text = "";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                txtCelular.Text = "";
+                txtNumeroTarjeta.Text = "";
+            }
+            }
+        }
+        
+
+        //Proceso que asigna un detalle a un grupo de tickets
+        private void asignarDetalleAtickets(ArrayList listasIdsDetalles)
+        {
+            DetalleFactura detalle = new DetalleFactura();
+            Ticket ticket = new Ticket();
+            Ticket ticketSiguiente = new Ticket();
+            int j = 0;
+ 
+            for (int i = 0; i < listaButacasSeleccionadas.Count; i++)
+            {
+                ticket = (Ticket)listaButacasSeleccionadas[i];
+
+                if (i == listaButacasSeleccionadas.Count - 1)
+                    ticketSiguiente = ticket;
+                else
+                    ticketSiguiente = (Ticket)listaButacasSeleccionadas[i + 1];           
+
+                if (ticket.fkFuncionSala == ticketSiguiente.fkFuncionSala)
+                {
+                    ticket.IdDetalle = (int) listasIdsDetalles[j];
+                }
+                else
+                {
+                    ticket.IdDetalle = (int)listasIdsDetalles[j];
+                    j++;
+                }
+            }
         }
 
         //Calcula el total de la Factura
@@ -477,13 +580,58 @@ namespace GUI_MODERNISTA
             Cliente cliente = new Cliente();
             Conexion_Consulta consulta = new Conexion_Consulta();
             cliente = consulta.infoCliente(txtCi.Text);
+
             txtNombre.Text = cliente.nombre;
             txtApellido.Text = cliente.apellido;
+
             txtCelular.Text = cliente.cel.ToString();
+            if (cliente.apellido==null)
+            {
+                MessageBox.Show("Debe ingresar los datos para agregar al cliente!");
+                txtCelular.Text = "";
+            }
+
         }
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
+            if (txtCi.Text == "")
+            {
+                errorProvider1.SetError(txtCi, "Debe ingresar un CI");
+                txtCi.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtCi, "");
+            if (txtNombre.Text == "")
+            {
+                errorProvider1.SetError(txtNombre, "Debe ingresar un Nombre");
+                txtNombre.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtNombre, "");
+            if (txtApellido.Text == "")
+            {
+                errorProvider1.SetError(txtApellido, "Debe ingresar un Apellido");
+                txtApellido.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtApellido, "");
+            Int64 celular;
+            if (!Int64.TryParse(txtCelular.Text, out celular))
+            {
+                errorProvider1.SetError(txtCelular, "Debe ingresar un Número de Celular");
+                txtCelular.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtCelular, "");
+            if (Convert.ToInt64(txtCelular.Text) < 60000000 && Convert.ToInt64(txtCelular.Text) > 79999999)
+            {
+                errorProvider1.SetError(txtCelular, "Debe ingresar un Celular Válido");
+                txtCelular.Focus();
+                return;
+            }
+            errorProvider1.SetError(txtCelular, "");
+
             Cliente cliente = new Cliente();
             Conexion_Consulta consulta = new Conexion_Consulta();
             cliente = consulta.infoCliente(txtCi.Text);
@@ -493,6 +641,7 @@ namespace GUI_MODERNISTA
 
                 cliente.nombre = txtNombre.Text;
                 cliente.apellido = txtApellido.Text;
+              
                 cliente.cel = Convert.ToInt32(txtCelular.Text);
                 if (consulta.modificarCliente(cliente))
 
@@ -503,6 +652,36 @@ namespace GUI_MODERNISTA
             {
                 MessageBox.Show("MODIFICACION incirecta");
             }
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPrecioTotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Factura_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblClasifi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGenero_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
