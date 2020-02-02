@@ -13,7 +13,7 @@ namespace GUI_MODERNISTA
 {
     class Conexion_Consulta
     {
-        private string cadenaConexion = "Data Source=localhost;Initial Catalog=CineBD;User ID=sa;Password=1234";
+        private string cadenaConexion = "Data Source=DESKTOP-IJ12V44;Initial Catalog=CineBD;Integrated Security=True";
 
         SqlConnection conexion;
 
@@ -799,6 +799,109 @@ namespace GUI_MODERNISTA
             }
             return cliente;
         }
-       
+
+        public List<EmpleadoTurnoCaja> get1s()
+        {
+            List<EmpleadoTurnoCaja> empleado = new List<EmpleadoTurnoCaja>();
+            string consulta = " select DISTINCT e.Id,e.Nombre,e.Apellido_paterno,e.Apellido_Materno,t.Nombre, cj.Nro,etc.Fecha  " +
+                " from Empleado e, Cargo c, Empleado_Cargo ec, Turno t,Empleado_Turno_Caja etc, caja cj " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3 and t.Id=etc.fk_Id_Turno and e.Id=etc.fk_Id_Empleado and cj.Nro = etc.fk_Id_Caja ";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+
+                        EmpleadoTurnoCaja cajero = new EmpleadoTurnoCaja();
+                        cajero.id = reader.GetInt32(0);
+                        cajero.nombre = reader.GetString(1);
+                        cajero.apPaterno = reader.GetString(2);
+                        cajero.apMaterno = reader.GetString(3);
+                        cajero.Turno = reader.GetString(4);
+                        cajero.NroCaja = reader.GetInt32(5);
+                        cajero.Fecha = reader.GetDateTime(6);
+                        empleado.Add(cajero);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return empleado;
+
+        }
+
+        public EmpleadoTurnoCaja cajet(string ID)
+        {
+            EmpleadoTurnoCaja empleado = new EmpleadoTurnoCaja();
+            string consulta = " select DISTINCT e.Id,e.Nombre,e.Apellido_paterno,e.Apellido_Materno,t.Nombre, cj.Nro  " +
+                " from Empleado e, Cargo c, Empleado_Cargo ec, Turno t,Empleado_Turno_Caja etc, caja cj " +
+                " where e.Id = ec.fk_Id_Empleado and ec.fk_Id_Cargo = 3 and t.Id=etc.fk_Id_Turno and e.Id=etc.fk_Id_Empleado and cj.Nro = etc.fk_Id_Caja and e.Id='" + ID + "' ";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        empleado.id = reader.GetInt32(0);
+                        empleado.Turno = reader.GetString(4);
+                        empleado.NroCaja = reader.GetInt32(5);
+
+                    }
+                    reader.Close();
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hay un problema con la Base de Datos" + ex.ToString());
+                }
+            }
+            return empleado;
+
+        }
+
+        public bool InsertarTurno(EmpleadoTurnoCaja empleadoTurno)
+        {
+            bool registrado = false;
+            string consulta = "insert into empleado_turno_caja (fk_id_empleado,fk_id_turno,fk_id_caja,fecha,caja_chica) " +
+                "values(" + empleadoTurno.fkIdEmpleado + "," + empleadoTurno.fkTunrnoEmpleado + "," + empleadoTurno.fkIdCaja + ",'" + empleadoTurno.Fecha.ToString("yyyy-MM-dd") + "'," + empleadoTurno.Caja_Chica + ")";
+
+            using (conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand command = new SqlCommand(consulta, conexion);
+
+                try
+                {
+                    conexion.Open();
+                    command.ExecuteNonQuery();
+
+                    conexion.Close();
+                    registrado = true;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Hay un error en la bd " + ex.Message);
+                }
+            }
+            return registrado;
+        }
+
     }
 }
