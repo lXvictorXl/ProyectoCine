@@ -57,6 +57,7 @@
     <Compile Include="ConexionBD y Consultas\Conexion_Consulta.cs" />
     <Compile Include="Clases\DetalleFactura.cs" />
     <Compile Include="Clases\FacturaCliente.cs" />
+    <Compile Include="Clases\EmpleadoTurnoCaja.cs" />
     <Compile Include="Forms SupervisorCajero\DesignarCajero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms SupervisorCajero\CrearCuenta.resx">
       <DependentUpon>CrearCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms SupervisorCajero\DesignarCajero.resx">
+      <DependentUpon>DesignarCajero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms SupervisorCajero\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
